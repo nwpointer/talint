@@ -1,0 +1,46 @@
+label, input{
+	display: block;
+}
+label:after{
+	content: ": "; 
+}
+
+table{
+	width: 100%;
+}
+
+.delete{
+	float:right;
+}
+
+
+#wrapper{
+	max-width: 460px;
+	margin:auto;
+}
+
+#addSkills, #addSkillsets{
+	background: rgba(0,0,0,.1);
+	padding:1rem;
+}
+
+#addSkills input, #addSkills label, #addSkills select,
+#addSkillsets input, #addSkillsets label, #addSkillsets select{
+	display: inline;
+}
+
+nav#primary ul{
+	list-style: none;
+	padding:0px;
+}
+nav#primary li{
+	padding-right:1.5rem;
+}
+
+nav#primary a{
+	text-decoration: none;
+}
+
+nav#primary *{
+	display: inline;
+}
