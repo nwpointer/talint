@@ -1,0 +1,41 @@
+<a href="/skills">back</a><br><br>
+<form action="skills:update:{{id}}" id="updateSkills">
+	<label for="name">name</label>
+	<input type="text" name="name" id="name" value="{{name}}">
+
+	<label for="quantifier">type</label>
+	<select name="quantifier" id="quantifier">
+		{{#each quantifier_options}}
+			<option value="{{this}}" 
+				{{#compare @index ../qi }} selected {{/compare}} 
+			>
+				{{this}}
+			</option>
+		{{/each}}
+	</select>
+	
+	<br><br>
+	<input type="submit" value="update">
+</form>
+<hr>
+
+<input type="submit" onclick="deleteSkills()" value="delete">
+
+
+
+
+<script>
+	updateSkills = new jsonForm("updateSkills", function(data){
+		var Skills = new crud("skills");
+		Skills.update({{id}}, data);
+	});
+
+
+	deleteSkills = function(){
+		var Skills = new crud("skills");
+		Skills.destroy({{id}});
+	};
+</script>
+
+
+

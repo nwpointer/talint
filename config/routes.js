@@ -60,4 +60,25 @@ module.exports.routes = {
 
   'get /api/skillsets/:setId?/skills/:skillId?/ranks/:rankId?' : "SkillsetsController.setrank",
 
+
+  // users
+
+  'get /user' : 'UserController.all',
+  'get /user/:id?' : 'UserController.profile',
+  'get /user/:id?/edit' : 'UserController.edit',
+  'post /user/:id?' : 'UserController.update',
+
+  // skills
+
+  'get /skills' : 'SkillsController.all',
+  'get /skills/new' : 'SkillsController.make',
+  'get /skills/:id?/edit' : 'SkillsController.edit',
+  'get /skills/:id?' : 'SkillsController.one',
+
+  // skillsets
+
+  'get /skillsets' : 'SkillsetsController.all',
+  'get /skillsets/:id?' : 'SkillsetsController.one',
+
+
 };

@@ -29,20 +29,5 @@
   <script src="/js/dependencies/poshytip-1.2/src/jquery.poshytip.js" ></script>
   <script src="/js/dependencies/jquery.xedit.min.js" ></script>
 
-  <script>
-    $.fn.editable.defaults.mode = 'inline';
-    $(document).ready(function() {
-        $('#username').editable({
-            type: 'text',
-            pk: 1,
-            url: '/status',
-            title: 'Enter username',
-            success: function(res, val) {
-              console.log(res);
-            }
-        });
-    });
-  </script>
-
   </body>
 </html>

@@ -23,7 +23,25 @@ module.exports = {
 		}
 		// res.json(args);
 
-	}
+	},
+
+	all: function(req,res){
+		Skillsets.find().exec(function(err, records){
+			records = {skillsets:records};
+			return res.view(records);
+		});
+	},
+
+	one: function(req,res){
+		id = req.allParams();
+
+		Skillsets.findOne(id).populate('skills').exec(function(err, records){
+			Skills.find().exec(function(err,skills){
+				records.skillLibrary = skills;
+				return res.view(records);
+			});
+		});
+	}	
 	
 };
 

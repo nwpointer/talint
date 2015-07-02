@@ -1,0 +1,37 @@
+{{{link "back" "/user"}}}
+
+<h1>{{username}}</h1>
+
+{{#if owns}}
+	<a href="/user/{{id}}/edit">edit</a>
+{{/if}}
+
+<ul>
+	<li>
+		<strong>firstname: </strong>
+		{{firstname}}
+	</li>
+	<li>
+		<strong>lastname: </strong>
+		{{lastname}}
+	</li>
+	<li>
+		<strong>email: </strong>
+		{{email}}
+	</li>
+	<li>
+		<strong>phone</strong>
+		{{phone}}
+	</li>
+	<li>
+		<strong>availability</strong>
+		{{availability}} / 5
+	</li>
+	<li>
+		<strong>bio: </strong>
+		<p>
+			{{biography}}
+		</p>
+	</li>
+</ul>
+
