@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
   	  	user: {
-  	  		model: 'skillsets',
+  	  		model: 'user'
   	  	},
   	  	skills:{
   	  		collection: 'skills'
@@ -43,7 +43,8 @@ module.exports = {
   	  			   throw "user does not have this skill";
   	        }
   	  		});  		
-  	  	}	
+  	  	},
+  	  	// implment duplicate method
   }
 };
 
