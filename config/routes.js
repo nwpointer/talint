@@ -59,5 +59,5 @@ module.exports.routes = {
   ***************************************************************************/
 
   'get /api/skillsets/:setId?/skills/:skillId?/ranks/:rankId?' : "SkillsetsController.setrank",
-  
+
 };
