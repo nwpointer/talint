@@ -11,6 +11,9 @@
  * http://sailsjs.org/#!/documentation/concepts/Views
  */
 
+theme = 'basic';
+// theme information is here, in .sailsrc and the handlebars helpers
+
 module.exports.views = {
 
   /****************************************************************************
@@ -75,7 +78,7 @@ module.exports.views = {
   *                                                                           *
   ****************************************************************************/
 
-  layout: 'layouts/layout',
+  layout: theme+'/layouts/layout',
 
   /****************************************************************************
   *                                                                           *
@@ -89,7 +92,7 @@ module.exports.views = {
   *                                                                           *
   ****************************************************************************/
 
-  partials: 'partials'
+  partials: theme+'/partials'
 
 
 };
