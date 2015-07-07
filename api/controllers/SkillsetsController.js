@@ -26,7 +26,7 @@ module.exports = {
 	},
 
 	all: function(req,res){
-		Skillsets.find().exec(function(err, records){
+		Skillsets.find().populate('skills').populate('user').exec(function(err, records){
 			records = {skillsets:records};
 			return res.view(records);
 		});
@@ -41,7 +41,8 @@ module.exports = {
 				return res.view(records);
 			});
 		});
-	}	
+	},
+
 	
 };
 

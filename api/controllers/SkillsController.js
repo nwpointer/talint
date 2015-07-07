@@ -23,12 +23,12 @@ module.exports = {
 		});
 	},
 
-	edit: function(req,res){
-		id = req.allParams().id;
-		Skills.find().exec(function(err, records){
-			return res.view({skills:records});
-		});
-	},
+	// edit: function(req,res){
+	// 	id = req.allParams().id;
+	// 	Skills.find().exec(function(err, records){
+	// 		return res.view({skills:records});
+	// 	});
+	// },
 
 	make: function(req,res){
 		return res.view();

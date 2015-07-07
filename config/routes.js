@@ -40,7 +40,7 @@ module.exports.routes = {
 
   'get /login': 'AuthController.login',
   'get /logout': 'AuthController.logout',
-  'get /register': 'AuthController.register',
+  'get /register/:code': 'AuthController.register',
 
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',
@@ -58,27 +58,34 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'get /api/skillsets/:setId?/skills/:skillId?/ranks/:rankId?' : "SkillsetsController.setrank",
+  'get /api/skillsets/:setId/skills/:skillId/ranks/:rankId' : "SkillsetsController.setrank",
 
 
   // users
 
   'get /user' : 'UserController.all',
-  'get /user/:id?' : 'UserController.profile',
-  'get /user/:id?/edit' : 'UserController.edit',
-  'post /user/:id?' : 'UserController.update',
+  'get /user/:id' : 'UserController.profile',
+  'get /user/:id/edit' : 'UserController.edit',
+  'post /user/:id' : 'UserController.update',
 
   // skills
 
   'get /skills' : 'SkillsController.all',
   'get /skills/new' : 'SkillsController.make',
-  'get /skills/:id?/edit' : 'SkillsController.edit',
-  'get /skills/:id?' : 'SkillsController.one',
+  // 'get /skills/:id?/edit' : 'SkillsController.edit',
+  'get /skills/:id' : 'SkillsController.one',
 
   // skillsets
 
   'get /skillsets' : 'SkillsetsController.all',
-  'get /skillsets/:id?' : 'SkillsetsController.one',
+  'get /skillsets/:id' : 'SkillsetsController.one',
+
+  // invites
+
+  'get /invites' : "InvitesController.all",
+  'get /invites/:id' : "InvitesController.one",
+  'get /invites/:id/send' : "InvitesController.send",
+  'get /invites/:id/cancel' : "InvitesController.cancel",
 
 
 };

@@ -19,13 +19,14 @@ table{
 	margin:auto;
 }
 
-#addSkills, #addSkillsets{
+#addSkills, #addSkillsets, #addInvites{
 	background: rgba(0,0,0,.1);
 	padding:1rem;
 }
 
 #addSkills input, #addSkills label, #addSkills select,
-#addSkillsets input, #addSkillsets label, #addSkillsets select{
+#addSkillsets input, #addSkillsets label, #addSkillsets select,
+#addInvites input, #addInvites label, #addInvites select{
 	display: inline;
 }
 

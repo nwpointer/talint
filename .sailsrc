@@ -3,6 +3,7 @@
     "modules": {}
   },
   "paths":{
-  	"views": "views/basic"
+  	"views": "views/basic",
+  	"layout": "views/basic/layouts"
   }
 }
