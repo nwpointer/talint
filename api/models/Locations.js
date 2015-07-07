@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
   	name: {type:"string"},
-  	users: {collection:'user', via: 'location'}
+  	// users: {collection:'user', via: 'locations'}
   }
 };
 
