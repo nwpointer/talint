@@ -8,7 +8,7 @@ var User = {
     phone     : { type: 'string' },
     biography : { type: 'string' },
     availability: {type:'integer' }, //also likely to change
-    // location  : { model: 'string' },
+    location  : { model: 'locations' },
     // link model  
     passports : { collection: 'Passport', via: 'user' },
     skillset:{
