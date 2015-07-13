@@ -7,19 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/basscss/css/basscss.min.css">
     <script src="/js/dependencies/sails.io.js" ></script>
     <script src="/js/dependencies/form2js.js" ></script>
     <script src="/js/dependencies/jsonForm.js"></script>
-    <script src="/js/dependencies/crud.js" ></script>    
+    <script src="/js/dependencies/crud.js" ></script> 
+
+
 
   </head>
 
   <body>
     
-  <div id="wrapper">
+  <div class="container">
+    <div class="clearfix">
+    
     {{> links }} 
   
     {{{body}}}
+    </div>
   </div>
 
 

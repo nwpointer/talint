@@ -1,21 +1,30 @@
-<nav id="primary">
+
+<header class="clearfix">
+  <h1 id="logo"> <a href="/">Talint</a> </h1>
+  
+  <nav>
     <ul>
-        <li> <h1> <a href="/">Talint</a> </h1></li>
-        
-        {{#if req.session.authenticated}}
-           <li><a href="/logout">logout</a></li>
-        {{else}}
-            <li><a href="/login">login</a></li>
-        {{/if}}
-
+      {{#if req.session.authenticated}}
+        <a href="/logout">logout</a>
+      {{else}}
+        <li><a href="/login">login</a></li>
         <li><a href="/register">signup</a></li>
-
-        <li> | </li>
-
-        <li><a href="/user">dashboard</a></li>
-        <li><a href="/skills">skills</a></li>
-        <li><a href="/skillsets">skillsets</a></li>
-        <li><a href="/invites">invites</a></li>
-
+      {{/if}}
     </ul>
-</nav>
+  </nav>
+  
+
+  <nav id="primary">
+      <ul class="tabs">          
+          {{#if req.session.authenticated}}
+             <li><a href="/user">dashboard</a></li>
+             <li><a href="/skills">skills</a></li>
+             <li><a href="/skillsets">skillsets</a></li>
+             <li><a href="/invites">invites</a></li>
+          {{/if}}
+
+          
+
+      </ul>
+  </nav>
+</header>

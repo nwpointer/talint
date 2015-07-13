@@ -1,4 +1,4 @@
-label, input{
+/*label, input{
 	display: block;
 }
 label:after{
@@ -44,4 +44,50 @@ nav#primary a{
 
 nav#primary *{
 	display: inline;
+}
+*/
+
+*{
+	color:#666666;
+}
+
+.form-inline input{
+	display: inline-block;
+	width:100% ;
+}
+
+.form-inline .btn{
+	margin-top:1rem;
+	width: 100%;
+}
+
+.sheet{
+	padding:1rem;
+	border-radius: .25rem;
+}
+
+.sheet-grey{
+	background: #EBEBEB;
+}
+nav li{
+	display: inline-block;
+	list-style: none;	
+}
+
+nav ul{
+	padding-left:0rem;
+}
+
+nav#primary{
+	margin-top: 2.5rem;
+}
+
+.tabs{
+	border-bottom:1px solid grey;
+}
+
+.tabs li{
+	margin:0rem;
+	background: #EBEBEB;
+	padding:1rem;
 }
