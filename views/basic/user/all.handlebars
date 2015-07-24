@@ -1,7 +1,8 @@
 <h1>users:</h1>
 
 <div id="users">
-	<input type="text" class="search" placeholder="search">
+	<input type="text" class="search field" placeholder="search">
+	<br><br>
 	<table border="1">
 		<thead>
 			<tr>
@@ -21,10 +22,18 @@
 			 		<a href="user/{{id}}">{{email}}</a>
 			 	</td>
 			 	<td>
-			 		{{location}}
+			 		{{#if location}}
+			 			{{location}}
+			 		{{else}}
+			 			-
+			 		{{/if}}
 			 	</td>
 			 	<td>
-			 		{{availability}}/5
+			 		{{#if availability}}
+			 			{{availability}}/5
+			 		{{else}}
+			 			-
+			 		{{/if}}
 			 	</td>
 			 </tr>
 			{{/each}}

@@ -3,25 +3,25 @@
 	
 
 	<label for="firstname">firstname</label> 
-	<input type="text" name="firstname" value="{{firstname}}">
+	<input class="field block"type="text" name="firstname" value="{{firstname}}">
 
 	<label for="lastname">lastname</label> 
-	<input type="text" name="lastname" value="{{lastname}}">
+	<input class="field block"type="text" name="lastname" value="{{lastname}}">
 
 	<label for="email">email</label> 
-	<input type="text" name="email" value="{{email}}">
+	<input class="field block"type="text" name="email" value="{{email}}">
 
 	<br>
 
-	<label for="status">status</label> 
+	<label for="status">status</label>: <br>
 	{{status}} <br><br>
 
-	<input type="submit" value="save">
+	<input class="btn btn-primary" type="submit" value="save">
 </form>
 <hr>
 
-<button onclick="sendInvite({{id}})">send</button>
-<button onclick="cancelInvite({{id}});">cancel</button>
+<button class="btn btn-primary bg-green" onclick="sendInvite({{id}})">send</button>
+<button class="btn btn-primary bg-yellow" onclick="cancelInvite({{id}});">cancel</button>
 
 
 

@@ -5,12 +5,12 @@
 
 <form action="skillsets:add" id="addSkillsets">
 	<label for="name">name</label>
-	<select name="skill" id="skill">
+	<select class="field" name="skill" id="skill">
 		{{#each skillLibrary }}
 			<option value="{{id}}">{{name}}</option>
 		{{/each}}
 	</select>
-	<input type="submit">
+	<input class="btn btn-primary" type="submit" value="add">
 </form>
 
 <script>
@@ -29,7 +29,8 @@
 		})
 	}
 </script>
-
+<hr>
+includes:
 <ul>
 {{#each skills}}
 	<li>

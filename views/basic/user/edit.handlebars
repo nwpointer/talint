@@ -4,27 +4,29 @@
 
 <form action="/api/user/{{id}}" method="POST" id="userusedit">
 	<label for="firstname">firstname</label> 
-	<input type="text" name="firstname" value="{{firstname}}">
+	<input class="field block" type="text" name="firstname" value="{{firstname}}">
 
 	<label for="lastname">lastname</label> 
-	<input type="text" name="lastname" value="{{lastname}}">
+	<input class="field block" type="text" name="lastname" value="{{lastname}}">
 
 	<label for="email">email</label> 
-	<input type="text" name="email" value="{{email}}">
+	<input class="field block" type="text" name="email" value="{{email}}">
 
 	<label for="phone">phone</label> 
-	<input type="num" name="phone" value="{{phone}}">
+	<input class="field block" type="num" name="phone" value="{{phone}}">
 
 	<label for="availability">availability</label> 
-	<input type="range" name="availability" min="0" max="5" value="{{availability}}">
+	<input class="field block" type="range" name="availability" min="0" max="5" value="{{availability}}">
 
 	<label for="location">location</label> 
-	<input type="num" name="location" value="{{location}}">
+	<input class="field block" type="num" name="location" value="{{location}}">
 
 
 	<label for="biography">biography</label> 
-	<textarea name="biography" id="biography" cols="30" rows="10">{{biography}}</textarea>
+	<textarea class="field block" name="biography" id="biography" cols="30" rows="10">{{biography}}</textarea>
 
-	<input type="submit">
+	<br>
+
+	<input class="btn btn-primary" type="submit">
 </form>
 

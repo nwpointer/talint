@@ -2,7 +2,7 @@
 <header class="clearfix">
   <h1 id="logo"> <a href="/">Talint</a> </h1>
   
-  <nav>
+  <nav id="account">
     <ul>
       {{#if req.session.authenticated}}
         <a href="/logout">logout</a>
@@ -22,8 +22,6 @@
              <li><a href="/skillsets">skillsets</a></li>
              <li><a href="/invites">invites</a></li>
           {{/if}}
-
-          
 
       </ul>
   </nav>

@@ -39,3 +39,14 @@
 	</li>
 </ul>
 
+<h4>skills</h4>
+<a href="/skillsets/{{skillset.0.id}}">edit skills</a>
+<ul>
+	{{#each skillset}}
+		{{#each this.skills}}
+			<li>{{this.name}}</li>
+		{{/each}}
+	{{/each}}
+</ul>
+
+{{!-- <iframe src="/api/skillsets/{{id}}" frameborder="0" width="100%" height="500px"></iframe> --}}

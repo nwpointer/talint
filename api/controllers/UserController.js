@@ -18,13 +18,18 @@ module.exports = {
 
 		var id = req.param('id');
 
-		User.findOne(id).exec(function findCB(err, found){
+		User.findOne(id).populate('skillset').exec(function findCB(err, found){
 			if(err){
 				return res.serverError(err);
 			}else{
 				if( found ){
 					found.owns = (id == req.session.passport.user) ? true : false;
-					return res.view(found);
+
+					Skillsets.find(found.skillset.id).populate('skills').exec(function(err, skillset){
+						found.skillset = skillset;
+
+						return res.view(found);
+					});
 				}
 				else{
 					return res.send("user not found");

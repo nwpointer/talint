@@ -78,8 +78,9 @@ nav ul{
 	padding-left:0rem;
 }
 
-nav#primary{
-	margin-top: 2.5rem;
+nav#account{
+	float:right;
+	padding:1rem;
 }
 
 .tabs{
