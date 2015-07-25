@@ -1,20 +1,38 @@
 <h1>users:</h1>
 
+<script>
+	window.userSkills = {
+		1:{
+			0:{name:"math", rank:3, unit: "/10"},
+			1:{name:"html5", rank:5, unit: "/10"}
+		},
+		2:{
+			0:{name:"math", rank:5, unit: "/10"},
+			1:{name:"html5", rank:9, unit: "/10"}
+		}
+	};
+</script>
+
+<div id="app"></div>
 <div id="users">
-	<input type="text" class="search field" placeholder="search">
-	<br><br>
 	<table border="1">
 		<thead>
 			<tr>
 				<th class="sort" data-sort="name">name</th>
-				<th class="sort" data-sort="email">name</th>
+				<th class="sort" data-sort="email">email</th>
 				<th class="sort" data-sort="location">location</th>
 				<th class="sort" data-sort="availability">availability</th>
+				<th class="sort" data-sort="match">
+					match
+				</th>
 			</tr>
 		</thead>
 		<tbody class="list">
 			{{#each users}}
-			 <tr>
+			<script>
+				// userSkills[{{id}}] = {}
+			</script>
+			 <tr id="{{id}}">
 			 	<td class="name">
 			 		<a href="user/{{id}}">{{firstname}} {{lastname}}</a>
 			 	</td>
@@ -35,9 +53,18 @@
 			 			-
 			 		{{/if}}
 			 	</td>
+			 	<td>
+					<span>100</span>%
+			 	</td>
 			 </tr>
 			{{/each}}
 		</tbody>
 	</table>
 </div>
 
+<script type="text/jsx">
+	React.render(
+		<App />,
+		document.getElementById('app')
+	);
+</script>
