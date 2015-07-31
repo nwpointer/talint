@@ -1,65 +1,72 @@
-<h1>users:</h1>
+<div class="block-white">
 
-<script>
-	window.userSkills = {
-		1:{
-			0:{name:"math", rank:3, unit: "/10"},
-			1:{name:"html5", rank:5, unit: "/10"}
-		},
-		2:{
-			0:{name:"math", rank:5, unit: "/10"},
-			1:{name:"html5", rank:9, unit: "/10"}
-		}
-	};
-</script>
+	<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
+	<br>
+	<h2>users:</h2>
 
-<div id="app"></div>
-<div id="users">
-	<table border="1">
-		<thead>
-			<tr>
-				<th class="sort" data-sort="name">name</th>
-				<th class="sort" data-sort="email">email</th>
-				<th class="sort" data-sort="location">location</th>
-				<th class="sort" data-sort="availability">availability</th>
-				<th class="sort" data-sort="match">
-					match
-				</th>
-			</tr>
-		</thead>
-		<tbody class="list">
-			{{#each users}}
-			<script>
-				// userSkills[{{id}}] = {}
-			</script>
-			 <tr id="{{id}}">
-			 	<td class="name">
-			 		<a href="user/{{id}}">{{firstname}} {{lastname}}</a>
-			 	</td>
-			 	<td class="email">
-			 		<a href="user/{{id}}">{{email}}</a>
-			 	</td>
-			 	<td>
-			 		{{#if location}}
-			 			{{location}}
-			 		{{else}}
-			 			-
-			 		{{/if}}
-			 	</td>
-			 	<td>
-			 		{{#if availability}}
-			 			{{availability}}/5
-			 		{{else}}
-			 			-
-			 		{{/if}}
-			 	</td>
-			 	<td>
-					<span>100</span>%
-			 	</td>
-			 </tr>
-			{{/each}}
-		</tbody>
-	</table>
+	<script>
+		window.userSkills = {
+			1:{
+				0:{name:"math", rank:3, unit: "/10"},
+				1:{name:"html5", rank:5, unit: "/10"}
+			},
+			2:{
+				0:{name:"math", rank:5, unit: "/10"},
+				1:{name:"html5", rank:9, unit: "/10"}
+			}
+		};
+	</script>
+
+	<br>
+	<div id="app"></div>
+
+	<div id="users">
+		<table border="1">
+			<thead>
+				<tr>
+					<th class="sort" data-sort="name">name</th>
+					<th class="sort" data-sort="email">email</th>
+					<th class="sort" data-sort="location">location</th>
+					<th class="sort" data-sort="availability">availability</th>
+					<th class="sort" data-sort="match">
+						match
+					</th>
+				</tr>
+			</thead>
+			<tbody class="list">
+				{{#each users}}
+				<script>
+					// userSkills[{{id}}] = {}
+				</script>
+				 <tr id="{{id}}">
+				 	<td class="name">
+				 		<a href="user/{{id}}">{{firstname}} {{lastname}}</a>
+				 	</td>
+				 	<td class="email">
+				 		<a href="user/{{id}}">{{email}}</a>
+				 	</td>
+				 	<td>
+				 		{{#if location}}
+				 			{{location}}
+				 		{{else}}
+				 			-
+				 		{{/if}}
+				 	</td>
+				 	<td>
+				 		{{#if availability}}
+				 			{{availability}}/5
+				 		{{else}}
+				 			-
+				 		{{/if}}
+				 	</td>
+				 	<td>
+						<span>100</span>%
+				 	</td>
+				 </tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
 </div>
 
 <script type="text/jsx">

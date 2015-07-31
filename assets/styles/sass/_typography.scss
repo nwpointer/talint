@@ -1,0 +1,29 @@
+@import 'color';
+
+.small{
+	font-size:70%;
+	color: lighten($fill-darkest, 10%);
+	font-weight: 100;
+}
+
+a{
+	color:$action;
+}
+
+h2{
+	color:$fill-darkest;
+	font-weight: 300;
+}
+
+h4{
+	font-weight: 400;
+	color:$fill-darkest;
+	text-transform: capitalize;
+	margin-bottom: .75rem;
+	margin-top: 1rem;
+}
+
+p{
+	font-size: 90%;
+	line-height: 1.5rem;
+}

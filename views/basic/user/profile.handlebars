@@ -1,54 +1,75 @@
-{{{link "back" "/user"}}}
+<script>
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+window.foo=(eval(decodeHtml("{{fake}}")));
+</script>
 
-<h1>{{username}}</h1>
+<div class="block-white">
+	<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
+	<div class="grid-8">
+		<div class="persona">
+			<img class="face" src="/images/face-bg.png" height="38" width="41" alt="">					
+			<div class="identity">
+				<h1 class='name'>
+					{{firstname}} {{lastname}}
+				</h1>	
+				<span class="title">
+					Assistant general manager, Research Developement
+				</span>
+			</div>	
+		</div>
+	</div>
+	<aside class="grid-4 right">
+	<br><br>
+	{{#unless owns}}
+		<a href="#" class="button green md">request profile update</a>
+		{{/unless}}
+	</aside>
+</div>
+<div class="block-white">
+	<div id="app"></div>
 
-{{#if owns}}
-	<a href="/user/{{id}}/edit">edit</a>
-{{/if}}
+	<br>
+	{{#if owns}}
+	<a href="/skillsets/{{skillset.0.id}}">edit</a>
+	{{/if}}
+</div>
+<div class="block-white bd-top">
+	<div class="grid-6">
+		<div class="grid-6">
+			<h4>email</h4>
+			<p>{{email}}</p>
+		</div>
+		<div class="grid-6">
+			<h4>phone</h4>
+			<p>{{phone}}</p>
+		</div>
+		<div class="grid-6">
+			<h4>availability</h4>
+			<p>{{availability}} / 5</p>
 
-<ul>
-	<li>
-		<strong>firstname: </strong>
-		{{firstname}}
-	</li>
-	<li>
-		<strong>lastname: </strong>
-		{{lastname}}
-	</li>
-	<li>
-		<strong>email: </strong>
-		{{email}}
-	</li>
-	<li>
-		<strong>phone</strong>
-		{{phone}}
-	</li>
-	<li>
-		<strong>availability</strong>
-		{{availability}} / 5
-	</li>
-	<li>
-		<strong>location:</strong>
-		{{location}}
-	</li>
-	<li>
-		<strong>bio: </strong>
-		<p>
-			{{biography}}
-		</p>
-	</li>
-</ul>
+		</div>
+	</div>
+	<div class="grid-6">
+		<h4>Bio</h4>
+		<p>{{biography}}</p>
+	</div>
+</div>
 
-<h4>skills</h4>
-<a href="/skillsets/{{skillset.0.id}}">edit skills</a>
-{{!-- <ul>
-	{{#each skillset}}
-		{{#each this.skills}}
-			<li>{{this.name}}</li>
-		{{/each}}
-	{{/each}}
-</ul> --}}
-<div id="app"></div>
+<div class="block-white">
+
+	
+
+	{{#if owns}}
+		<a href="/user/{{id}}/bio">edit</a>
+	{{/if}}
+
+	
+	
+</div>
 <script type="text/jsx">
 	var App = React.createClass({
 		getInitialState: function(){
@@ -58,24 +79,24 @@
 		      skill:1,
 		      qualification:0,
 		    },
-		    requirements:{
-		      skills:[
-		        {id: 0, name:"math", rank:3, unit: "/10"},
-		        {id: 1, name:"html5", rank:5, unit: "/10"}
-		      ],
-		      qualifications:[
-		        {id: 2, name:"formal education", rank:1, unit:'years'},
-		        {id: 3, name:"industry experience", rank:9, unit:'years'}
-		      ]
-		    }
+		    requirements:foo
 		  }
 		 },
 		render: function(){
 			var req = this.state.requirements;
 			return(
-				<section>
-					<RequirementsList req={req.skills} set="skills" />
-					<RequirementsList req={req.qualifications} set="qualifications" />
+				<section className="skill-profile">
+					<RequirementsList req={req.skills} set="skills" headers="true"/>
+					<RequirementsList req={req.qualifications} set="qualifications" headers="true"/>
+					<li className="parent">
+						<ul>
+							<li className="parent-name"><h4>location</h4></li>
+							<li className="child">
+								<span className="type">l</span>
+								{{location}}
+							</li>
+						</ul>
+					</li>
 				</section>
 			);
 		}

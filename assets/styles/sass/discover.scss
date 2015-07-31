@@ -1,0 +1,97 @@
+@import 'color';
+
+.discover{
+	overflow: auto;
+	height:auto;
+}
+.menu{
+	// background: rgb(102, 210, 102);
+	width: 20%;
+	float:left;
+}
+.menu a{
+	text-decoration: none;
+	border:1px solid rgba(255,255,255,.1);
+	background: rgba(0,0,0,.10);
+
+	display: inline-block;
+	width: 100%;
+	padding:1rem 1rem;
+	box-sizing: border-box;
+
+	color:$fill-darkest;
+}
+.menu a.focused, .menu a.focused:hover{
+	// background: rgb(67, 202, 67);
+	border-right: 0px;
+}
+.menu a.focused{
+	color:white;
+	background: $action
+}
+
+.filter, .requirements{
+	width: 80%;
+	height: 50%;
+	float:right;
+}
+.filter{
+	background:$action;
+	overflow:hidden;
+}
+
+.filter form{
+	padding:2rem;
+	height:2.5rem;
+	position: relative;
+	top: .5rem;
+	left: 1rem;
+}
+
+.filter form *{
+	display: inline-block;
+	margin-right:2rem;
+}
+.filter form input[type="range"]{
+	position: relative;
+	top:.25rem;
+}
+.skill-profile{
+	padding: .5rem 0 3rem;
+	.child{
+		overflow: visible;
+		white-space: nowrap;
+		font-size:90%;
+	}
+	span{
+		display:inline;
+		white-space: nowrap;
+	}
+}
+
+.type{
+	margin-right: .25rem;
+}
+// .requirements li{
+// 	display: inline;
+// 	padding-right:2rem;
+// }
+// ul{
+// 	list-style: none;
+// 	padding-left:0px;
+// }
+// li *{
+// 	display: inline;	
+// }
+
+// .requirements ul{
+// 	padding-left:2rem;
+// 	position: relative;
+// 	top:1.5rem;
+// }
+// .requirements span{
+// 	cursor: pointer;
+// }
+.delete{
+	color:red;
+}

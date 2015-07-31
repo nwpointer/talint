@@ -25,11 +25,33 @@ module.exports = {
 				if( found ){
 					found.owns = (id == req.session.passport.user) ? true : false;
 
-					Skillsets.find(found.skillset.id).populate('skills').exec(function(err, skillset){
-						found.skillset = skillset;
+					try{
+						Skillsets.find(found.skillset.id).populate('skills').exec(function(err, skillset){
+							found.skillset = skillset;
 
-						return res.view(found);
-					});
+							children = function(skills){
+								children = [];
+								for(i in skills){
+									if(skills[i].parent){
+										children.push(skills[i])
+									}
+								}
+								return children;
+							}
+							parents = function(skills){
+								parents = {};
+								for(i in skills){
+									if(!skills[i].parent){
+										parents[skills[i].id] = skills[i]
+									}
+								}
+								return parents
+							}
+						});
+					}catch(err){}
+					found.fake = (found.fake);
+					return res.view(found);
+					
 				}
 				else{
 					return res.send("user not found");
@@ -39,6 +61,24 @@ module.exports = {
 	},
 
 	edit: function(req, res){
+
+		var id = req.param('id');
+
+		User.findOne(id).exec(function findCB(err, found){
+			if(err){
+				return res.serverError(err);
+			}else{
+				if( found ){
+					return res.view(found);
+				}
+				else{
+					return res.send("user not found");
+				}
+			}
+		});
+	},
+
+	editbio: function(req, res){
 
 		var id = req.param('id');
 

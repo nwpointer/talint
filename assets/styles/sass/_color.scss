@@ -1,0 +1,14 @@
+
+$action: #99CC66;
+$action-dark: #85C160;
+
+$fill: #EBEBEB;
+$fill-lightest: #FFF;
+$fill-light: lighten($fill, 5%);
+$fill-dark: #EBEBEB;
+$fill-darkest: #8F8F8F;
+
+$darker: darken($fill-darkest, 20%);
+$black: lighten(#000, 20%);
+
+

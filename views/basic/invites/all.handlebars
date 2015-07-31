@@ -1,49 +1,52 @@
-<h1>Invites:</h1>
+<div class="block-white">
+	<h1>Invites:</h1>
 
-<form action="invites:create" id="addInvites">
-	<label for="firstname">name</label>
-	<input class="field" type="text" name="firstname" id="firstname" placeholder="first">
+	<form action="invites:create" id="addInvites">
+		<label for="firstname">name</label>
+		<input class="field" type="text" name="firstname" id="firstname" placeholder="first">
 
-	<input class="field" type="text" name="lastname" id="lastname" placeholder="last">
+		<input class="field" type="text" name="lastname" id="lastname" placeholder="last">
 
-	<label for="email">email</label>
-	<input class="field" type="text" name="email" id="email">
+		<label for="email">email</label>
+		<input class="field" type="text" name="email" id="email">
 
-	<input class="btn btn-primary"type="submit">
-</form>
+		<input class="btn btn-primary"type="submit">
+	</form>
 
-<script>
-	addInvites = new jsonForm("addInvites", function(data){
-		var Invites = new crud("invites");
-		Invites.create(data);
-	});
-</script>
+	<script>
+		addInvites = new jsonForm("addInvites", function(data){
+			var Invites = new crud("invites");
+			Invites.create(data);
+		});
+	</script>
 
-<br>
+	<br>
 
-<div id="skills">
-	{{!-- <input type="text" class="search" placeholder="search"> --}}
-	<table border="1">
-		<thead>
-			<tr>
-				<th {{!-- class="sort" --}} data-sort="created">created</th>
-				<th {{!-- class="sort" --}} data-sort="firstname">name</th>
-				<th {{!-- class="sort" --}} data-sort="email">email</th>
-				<th {{!-- class="sort" --}} data-sort="status">status</th>
-			</tr>
-		</thead>
-		<tbody {{!-- class="list" --}}>
-			{{#each invites}}
-			 <tr>
-			 	
-			 	<td><a href="/invites/{{id}}"> {{ createdAt }} </a></td>
-			 	<td> {{ firstname }} {{ lastname }} </td>
-			 	<td> {{ email }} </td>
-			 	<td> {{ status }} </td>
+	<div id="skills">
+		{{!-- <input type="text" class="search" placeholder="search"> --}}
+		<table border="1">
+			<thead>
+				<tr>
+					<th {{!-- class="sort" --}} data-sort="created">created</th>
+					<th {{!-- class="sort" --}} data-sort="firstname">name</th>
+					<th {{!-- class="sort" --}} data-sort="email">email</th>
+					<th {{!-- class="sort" --}} data-sort="status">status</th>
+				</tr>
+			</thead>
+			<tbody {{!-- class="list" --}}>
+				{{#each invites}}
+				 <tr>
+				 	
+				 	<td><a href="/invites/{{id}}"> {{ createdAt }} </a></td>
+				 	<td> {{ firstname }} {{ lastname }} </td>
+				 	<td> {{ email }} </td>
+				 	<td> {{ status }} </td>
 
-			 </tr>
-			{{/each}}
-		</tbody>
-	</table>
+				 </tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+
+
 </div>
-

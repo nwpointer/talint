@@ -1,17 +1,22 @@
-<div class="col-4 px2 mx-auto sheet sheet-grey">
-	<h3>login</h3>
-	<form class="form-inline" role="form" action="/auth/local" method="post" >
-	 <label for="identifier">Email</label>
-	 <input type="text" name="identifier" placeholder="Username or Email" class="field" >
-	 <label for="password">password</label>
-	 <input type="password" name="password" placeholder="Password" class="field" >
-	 <button class="btn btn-primary" type="submit">Sign in</button>
-	</form>
-</div>
-
 {{#each providers}}
   <a href="/auth/{{slug}}">{{name}}</a>
 {{/each}}
+
+<div class="login">
+	<div class="logo">
+		<h1 class="name">TalInt</h1>
+		<span class="slogan">
+			discover true potential
+		</span>
+	</div>
+
+	<form class="form-inline" role="form" action="/auth/local" method="post" >
+		 <label for="identifier">Email</label>
+		 <input type="text" name="identifier" placeholder="Username or Email" class="field" >
+		 <label for="password">password</label>
+		 <input type="password" name="password" placeholder="Password" class="field" >
+		 <button class="button" type="submit">Sign in</button>
+</div>
 
 
 

@@ -13,7 +13,8 @@ var User = {
     passports : { collection: 'Passport', via: 'user' },
     skillset:{
     	model: 'skillsets'
-    }
+    },
+    fake: { type: 'json' }
   }
 };
 

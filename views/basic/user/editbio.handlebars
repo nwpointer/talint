@@ -1,0 +1,33 @@
+<div class="block-white">
+
+	<h1>{{username}}</h1>
+
+	<form action="/api/user/{{id}}" method="POST" id="userusedit">
+		<label for="firstname">firstname</label> 
+		<input class="field block" type="text" name="firstname" value="{{firstname}}">
+
+		<label for="lastname">lastname</label> 
+		<input class="field block" type="text" name="lastname" value="{{lastname}}">
+
+		<label for="email">email</label> 
+		<input class="field block" type="text" name="email" value="{{email}}">
+
+		<label for="phone">phone</label> 
+		<input class="field block" type="num" name="phone" value="{{phone}}">
+
+		<label for="availability">availability</label> 
+		<input class="field block" type="range" name="availability" min="0" max="5" value="{{availability}}">
+
+		<label for="location">location</label> 
+		<input class="field block" type="num" name="location" value="{{location}}">
+
+
+		<label for="biography">biography</label> 
+		<textarea class="field block" name="biography" id="biography" cols="30" rows="10">{{biography}}</textarea>
+
+		<br>
+
+		<input class="button btn-primary" type="submit">
+	</form>
+
+</div>

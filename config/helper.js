@@ -27,6 +27,10 @@ Handlebars.registerHelper('get', function(obj, attr){
 	return obj[attr];
 });
 
+Handlebars.registerHelper('json', function(obj) {
+    return eval(obj);
+});
+
 
 Handlebars.registerHelper('compare', function (lvalue, operator, rvalue, options) {
 

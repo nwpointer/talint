@@ -1,41 +1,44 @@
-<a href="/skills">back</a><br><br>
-<form action="skills:update:{{id}}" id="updateSkills">
-	<label for="name">name</label>
-	<input class="field" type="text" name="name" id="name" value="{{name}}">
+<div class="block-white">
+	<a href="/skills">back</a><br><br>
+	<form action="skills:update:{{id}}" id="updateSkills">
+		<label for="name">name</label>
+		<input class="field" type="text" name="name" id="name" value="{{name}}">
 
-	<label for="quantifier">type</label>
-	<select class="field" name="quantifier" id="quantifier">
-		{{#each quantifier_options}}
-			<option value="{{this}}" 
-				{{#compare @index ../qi }} selected {{/compare}} 
-			>
-				{{this}}
-			</option>
-		{{/each}}
-	</select>
-	
-	<br><br>
-	<input class="btn btn-primary" type="submit" value="update">
-</form>
-<hr>
+		<label for="quantifier">type</label>
+		<select class="field" name="quantifier" id="quantifier">
+			{{#each quantifier_options}}
+				<option value="{{this}}" 
+					{{#compare @index ../qi }} selected {{/compare}} 
+				>
+					{{this}}
+				</option>
+			{{/each}}
+		</select>
+		
+		<br><br>
+		<input class="btn btn-primary" type="submit" value="update">
+	</form>
+	<hr>
 
-<input class="btn btn-primary bg-red" type="submit" onclick="deleteSkills()" value="delete">
-
-
-
-
-<script>
-	updateSkills = new jsonForm("updateSkills", function(data){
-		var Skills = new crud("skills");
-		Skills.update({{id}}, data);
-	});
-
-
-	deleteSkills = function(){
-		var Skills = new crud("skills");
-		Skills.destroy({{id}});
-	};
-</script>
+	<input class="btn btn-primary bg-red" type="submit" onclick="deleteSkills()" value="delete">
 
 
 
+
+	<script>
+		updateSkills = new jsonForm("updateSkills", function(data){
+			var Skills = new crud("skills");
+			Skills.update({{id}}, data);
+		});
+
+
+		deleteSkills = function(){
+			var Skills = new crud("skills");
+			Skills.destroy({{id}});
+		};
+	</script>
+
+
+
+
+</div>

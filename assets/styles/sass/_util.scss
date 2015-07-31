@@ -1,0 +1,7 @@
+$test: 1px solid red;
+
+@function z($depth){
+	$intensity : .1 + 0.1 * $depth;
+	$height: 1 + 2*$depth;
+	@return 1px 1px #{$height}px rgba(0,0,0,$intensity);
+}

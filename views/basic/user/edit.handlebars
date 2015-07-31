@@ -1,32 +1,89 @@
-<a href="/user">back</a>
+<script>
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+window.foo=(eval(decodeHtml("{{fake}}")));
+</script>
+<script>
+	window.userSkills = {
+		1:{
+			0:{name:"math", rank:3, unit: "/10"},
+			1:{name:"html5", rank:5, unit: "/10"}
+		},
+		2:{
+			0:{name:"math", rank:5, unit: "/10"},
+			1:{name:"html5", rank:9, unit: "/10"}
+		}
+	};
+</script>
 
-<h1>{{username}}</h1>
-
-<form action="/api/user/{{id}}" method="POST" id="userusedit">
-	<label for="firstname">firstname</label> 
-	<input class="field block" type="text" name="firstname" value="{{firstname}}">
-
-	<label for="lastname">lastname</label> 
-	<input class="field block" type="text" name="lastname" value="{{lastname}}">
-
-	<label for="email">email</label> 
-	<input class="field block" type="text" name="email" value="{{email}}">
-
-	<label for="phone">phone</label> 
-	<input class="field block" type="num" name="phone" value="{{phone}}">
-
-	<label for="availability">availability</label> 
-	<input class="field block" type="range" name="availability" min="0" max="5" value="{{availability}}">
-
-	<label for="location">location</label> 
-	<input class="field block" type="num" name="location" value="{{location}}">
-
-
-	<label for="biography">biography</label> 
-	<textarea class="field block" name="biography" id="biography" cols="30" rows="10">{{biography}}</textarea>
+<div class="block-white">
+	<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
+	<div class="grid-8">
+		<div class="persona">
+			<img class="face" src="/images/face-bg.png" height="38" width="41" alt="">					
+			<div class="identity">
+				<h1 class='name'>
+					{{firstname}} {{lastname}}
+				</h1>	
+				<span class="title">
+					Assistant general manager, Research Developement
+				</span>
+			</div>	
+		</div>
+	</div>
+	<aside class="grid-4 right">
+	<br><br>
+	{{#unless owns}}
+		<a href="#" class="button green md">request profile update</a>
+		{{/unless}}
+	</aside>
+</div>
+<div class="block-white">
+	<div id="app"></div>
 
 	<br>
+	<a href="/user/{{id}}">save</a>
 
-	<input class="btn btn-primary" type="submit">
-</form>
+</div>
+<div class="block-white bd-top">
+	<div class="grid-6">
+		<div class="grid-6">
+			<h4>email</h4>
+			<p>{{email}}</p>
+		</div>
+		<div class="grid-6">
+			<h4>phone</h4>
+			<p>9712070341</p>
+		</div>
+		<div class="grid-6">
+			<h4>availability</h4>
+			<p>{{availability}} / 5</p>
 
+		</div>
+	</div>
+	<div class="grid-6">
+		<h4>Bio</h4>
+		<p>{{biography}}</p>
+	</div>
+</div>
+
+<div class="block-white">
+
+	
+
+	{{#if owns}}
+		<a href="/user/{{id}}/edit">edit</a>
+	{{/if}}
+
+	
+	
+</div>
+<script type="text/jsx">
+	React.render(
+		<App />,
+		document.getElementById('app')
+	);
+</script>

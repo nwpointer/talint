@@ -1,0 +1,54 @@
+$grid-width: 960px;
+$grid-col: 12;
+
+$susy: (
+  columns: 12,
+  gutters: .25,
+  container: $grid-width
+);
+
+@mixin col($size) {
+	// float:left;
+	display: inline-block;
+	box-sizing:border-box;
+	@if $size < $grid-col{
+		@include gallery($size);
+	}
+	@else{
+		@include span($size);
+	}
+}
+
+.center{
+	text-align: center;
+	*{
+		margin:auto;
+	}
+}
+
+.right{
+	*{
+		float:right;
+	}
+}
+
+.grid-8{
+	width:span(8);
+	float:left;
+}
+
+.grid-4{
+	width:span(4);
+	float:left;	
+}
+.grid-6{
+	width:percentage(6/12);
+	float:left;
+}
+
+aside.grid-4{
+	width:span(4 last);
+	position: relative;
+}
+
+$header-height:6rem;

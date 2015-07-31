@@ -1,0 +1,66 @@
+.discover {
+  overflow: auto;
+  height: auto; }
+
+.menu {
+  width: 20%;
+  float: left; }
+
+.menu a {
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  width: 100%;
+  padding: 1rem 1rem;
+  box-sizing: border-box;
+  color: #8F8F8F; }
+
+.menu a.focused, .menu a.focused:hover {
+  border-right: 0px; }
+
+.menu a.focused {
+  color: white;
+  background: #99CC66; }
+
+.filter, .requirements {
+  width: 80%;
+  height: 50%;
+  float: right; }
+
+.filter {
+  background: #99CC66;
+  overflow: hidden; }
+
+.filter form {
+  padding: 2rem;
+  height: 2.5rem;
+  position: relative;
+  top: .5rem;
+  left: 1rem; }
+
+.filter form * {
+  display: inline-block;
+  margin-right: 2rem; }
+
+.filter form input[type="range"] {
+  position: relative;
+  top: .25rem; }
+
+.skill-profile {
+  padding: .5rem 0 3rem; }
+  .skill-profile .child {
+    overflow: visible;
+    white-space: nowrap;
+    font-size: 90%; }
+  .skill-profile span {
+    display: inline;
+    white-space: nowrap; }
+
+.type {
+  margin-right: .25rem; }
+
+.delete {
+  color: red; }
+
+/*# sourceMappingURL=discover.css.map */

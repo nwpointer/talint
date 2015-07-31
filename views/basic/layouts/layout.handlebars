@@ -6,8 +6,7 @@
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="/styles/style.css">
-    <link rel="stylesheet" type="text/css" href="/bower_components/basscss/css/basscss.min.css">
+    <link rel="stylesheet" type="text/css" href="/styles/css/main.css">
     <link rel="stylesheet" type="text/css" href="/styles/discover.css">
     <script src="/js/dependencies/sails.io.js" ></script>
     <script src="/js/dependencies/form2js.js" ></script>
@@ -51,7 +50,10 @@
           var key = keys[i];
           // console.log(matches[key]);
           // matches[key] = diff(req,userSkills[key]);
-          document.getElementById(key).children[4].children[0].innerHTML = matches[key].score.toFixed(2);
+          if(document.getElementById(key)){
+            document.getElementById(key).children[4].children[0].innerHTML = matches[key].score.toFixed(2);  
+          }
+          
         }
         // for(i in matches){
         //   // 
@@ -74,8 +76,8 @@
                 {id: 1, name:"html5", rank:5, unit: "/10"}
               ],
               qualifications:[
-                {id: 2, name:"formal education", rank:1, unit:'years'},
-                {id: 3, name:"industry experience", rank:9, unit:'years'}
+                {id: 2, name:"formal education", rank:1, unit:'yr.'},
+                {id: 3, name:"industry experience", rank:9, unit:'yr.'}
               ]
             }
           };
@@ -136,26 +138,26 @@
           var req = this.state.requirements;
           var menuItems = Object.keys(this.state.requirements);
 
-          console.log(this.state.active);
-
           updateMatchList(calcuateMatch(merge(arrayToMapObj(req.skills), arrayToMapObj(req.qualifications)), userSkills), "#users");
 
 
   
           return(
-            <div className="discover">
-              <Menu class="menu" items={menuItems} active={active.req} onSelect={this.menuClicked} />
-              <ContentSwitch class="filter" active={active.req}>
-                <form name="skills">
-                  <Select name="name" active={active.skill} options={req.skills} onSelect={this.skillClicked} />
-                  <RangeList name="skills" active={active.skill} data={req.skills} onChange={this.reqUpdate} />
-                </form>
-                <Form name="qualifications" onChange={this.formUpdate}>
-                  <Select name="name" active={active.qualification} options={req.qualifications} onSelect={this.qualificationsClicked} />
-                  <RangeList name="qualifications" active={active.qualification} data={req.qualifications} onChange={this.reqUpdate} />
-                </Form>
-              </ContentSwitch>
-              <section className="requirements">
+            <div>
+              <div className="discover">
+                <Menu class="menu" items={menuItems} active={active.req} onSelect={this.menuClicked} />
+                <ContentSwitch class="filter" active={active.req}>
+                  <form name="skills">
+                    <Select name="name" active={active.skill} options={req.skills} onSelect={this.skillClicked} />
+                    <RangeList name="skills" active={active.skill} data={req.skills} onChange={this.reqUpdate} />
+                  </form>
+                  <Form name="qualifications" onChange={this.formUpdate}>
+                    <Select name="name" active={active.qualification} options={req.qualifications} onSelect={this.qualificationsClicked} />
+                    <RangeList name="qualifications" active={active.qualification} data={req.qualifications} onChange={this.reqUpdate} />
+                  </Form>
+                </ContentSwitch>
+              </div>
+              <section className="skill-profile">
                 <RequirementsList req={req.skills} set="skills" 
                   onClick={this.reqSelect}
                   onChange={this.reqDelete}
@@ -197,19 +199,28 @@
             remove = self.remove.bind(this,value,i);
             if(value.rank > 0){
             return (
-              <li>
+              <li className='child'>
+                <span className="type active">{self.props.set[0]}</span>
                 <span onClick={select} value={i}>
-                  {value.name} : {value.rank} {value.unit} 
+                  {value.name}: {value.rank} {value.unit} 
+                  <span className="delete" onClick={remove} > x</span>
                 </span>
-                <span className="delete" onClick={remove} > x</span>
+                
               </li>
             );
             }
           });
           return(
-            <ul>
-              {reqs}
-            </ul>
+            <li className="parent">
+              <ul>
+                <li className="parent-name">
+                  <h4>
+                    {this.props.headers ? this.props.set: ''}
+                  </h4>
+                </li>
+                {reqs}
+              </ul>
+            </li>
           );
         }
       });
