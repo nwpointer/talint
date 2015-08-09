@@ -17,6 +17,13 @@ window.foo=(eval(decodeHtml("{{fake}}")));
 			1:{name:"html5", rank:9, unit: "/10"}
 		}
 	};
+
+	window.tempreq = (eval(decodeHtml("{{fake}}")));
+
+	window.storeSkillProfile = function(userId){
+		io.socket.put('/api/user/'+userId, {fake: "fake=" + JSON.stringify(tempreq) }, function(res){console.log(res)})
+		window.location = '/user/'+userId;
+	}
 </script>
 
 <div class="block-white">
@@ -45,8 +52,8 @@ window.foo=(eval(decodeHtml("{{fake}}")));
 	<div id="app"></div>
 
 	<br>
-	<a href="/user/{{id}}">save</a>
-
+	<a onclick="storeSkillProfile({{id}})">save skills</a>
+`
 </div>
 <div class="block-white bd-top">
 	<div class="grid-6">

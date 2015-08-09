@@ -59,6 +59,17 @@
         //   // 
         // }
       }
+
+      window.tempreq = {
+              skills:[
+                {id: 0, name:"math", rank:3, unit: "/10"},
+                {id: 1, name:"html5", rank:5, unit: "/10"}
+              ],
+              qualifications:[
+                {id: 2, name:"formal education", rank:1, unit:'yr.'},
+                {id: 3, name:"industry experience", rank:9, unit:'yr.'}
+              ]
+            }
     </script>
 
     <script type="text/jsx">
@@ -70,16 +81,7 @@
               skill:1,
               qualification:0,
             },
-            requirements:{
-              skills:[
-                {id: 0, name:"math", rank:3, unit: "/10"},
-                {id: 1, name:"html5", rank:5, unit: "/10"}
-              ],
-              qualifications:[
-                {id: 2, name:"formal education", rank:1, unit:'yr.'},
-                {id: 3, name:"industry experience", rank:9, unit:'yr.'}
-              ]
-            }
+            requirements: tempreq
           };
         },
 
@@ -137,6 +139,7 @@
           var active = this.state.active
           var req = this.state.requirements;
           var menuItems = Object.keys(this.state.requirements);
+          window.tempreq = this.state.requirements;
 
           updateMatchList(calcuateMatch(merge(arrayToMapObj(req.skills), arrayToMapObj(req.qualifications)), userSkills), "#users");
 
@@ -146,6 +149,7 @@
             <div>
               <div className="discover">
                 <Menu class="menu" items={menuItems} active={active.req} onSelect={this.menuClicked} />
+
                 <ContentSwitch class="filter" active={active.req}>
                   <form name="skills">
                     <Select name="name" active={active.skill} options={req.skills} onSelect={this.skillClicked} />
@@ -156,6 +160,7 @@
                     <RangeList name="qualifications" active={active.qualification} data={req.qualifications} onChange={this.reqUpdate} />
                   </Form>
                 </ContentSwitch>
+                
               </div>
               <section className="skill-profile">
                 <RequirementsList req={req.skills} set="skills" 
