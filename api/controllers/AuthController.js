@@ -93,8 +93,14 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
+    code = req.params.code;
+    // Invites.findOne({ code: code}, function(err, invite){
+    //   console.log(invite);
+    // })
+
     res.view({
       errors: req.flash('error'),
+      code: code,
       layout: '../../views/basic/layouts/blank'
     });
   },
@@ -126,8 +132,9 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
+    console.log(req.params.all());
     function tryAgain (err) {
-
+      console.log(req.params.all());
       // Only certain error messages are returned via req.flash('error', someError)
       // because we shouldn't expose internal authorization errors to the user.
       // We do return a generic error and the original request body.

@@ -6,14 +6,26 @@
 		</span>
 		<p>
 			welcome! 
+			{{errors}}
 		</p>
 	</div>
-	<form  role="form" action="/auth/local/register" method="post">
-	  <input type="text" name="username" placeholder="Username">
-	  <input type="text" name="email" placeholder="Email">
+	{{!-- <form  role="form" action="/auth/local/register" method="post">
+	  <input type="text" name="username" placeholder="Username" value="testuser">
+	  <input type="text" name="email" placeholder="Email" value="testuser@gmail.com">
 	  <label for="password">password</label>
-	  <input type="password" name="password" placeholder="Password">
+	  <input type="password" name="password" placeholder="Password" value="RNs1120!!">
 	  <button class="button" type="submit">Sign up</button> 
+	</form> --}}
+
+	<form role="form" action="/auth/local/register" method="post">
+	  <input type="text" name="username" placeholder="Username" 
+	  value="testUser">
+	  <input type="text" name="email" placeholder="Email" 
+	  value="testUser@gmail.com">
+	  <input type="password" name="password" placeholder="Password" 
+	  value="testUser">
+	  <button type="submit">Sign up</button>
 	</form>
+
 
 </div>
