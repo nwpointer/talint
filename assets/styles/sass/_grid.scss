@@ -7,6 +7,11 @@ $susy: (
   container: $grid-width
 );
 
+body{
+	overflow-x:hidden;
+	overflow-y:scroll;
+}
+
 @mixin col($size) {
 	// float:left;
 	display: inline-block;

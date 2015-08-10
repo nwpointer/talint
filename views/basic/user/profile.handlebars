@@ -4,7 +4,25 @@ function decodeHtml(html) {
     txt.innerHTML = html;
     return txt.value;
 }
-window.foo=(eval(decodeHtml("{{fake}}")));
+window.skillTree=(eval(decodeHtml("{{fake}}")));
+// window.skillTree = {
+// 	skills:[
+// 		{id:10, type: "skill", name:"math", rank:10, unit: "/10", min:0, max:10},
+// 			{id:1, type: "skill", name:"html5", rank:5, unit: "/10", min:0, max:10},
+// 			{id:9, type: "skill", name:"knitting", rank:5, unit: "/10", min:0, max:10}
+// 	],
+// 	edu:{
+// 		bla: {
+// 			insude:[
+// 				{id:2, type: "skill", name:"masters", rank:1, unit: "yr.", min:0, max:10}
+// 			]
+// 		},
+// 		blat: [
+// 			{id:3, type: "skill", name:"masterz", rank:1, unit: "yr.", min:0, max:10},
+// 			{id:4, type: "skill", name:"masterz2", rank:1, unit: "yr.", min:0, max:10}
+// 		]
+// 	}
+// };
 </script>
 
 <div class="block-white">
@@ -30,7 +48,7 @@ window.foo=(eval(decodeHtml("{{fake}}")));
 	</aside>
 </div>
 <div class="block-white">
-	<div id="app"></div>
+	<div id="discoverViewOnly"></div>
 
 	<br>
 	{{#if owns}}
@@ -71,41 +89,9 @@ window.foo=(eval(decodeHtml("{{fake}}")));
 	
 </div>
 <script type="text/jsx">
-	var App = React.createClass({
-		getInitialState: function(){
-		  return{
-		    active: {
-		      req:0,
-		      skill:1,
-		      qualification:0,
-		    },
-		    requirements:foo
-		  }
-		 },
-		render: function(){
-			var req = this.state.requirements;
-			return(
-				<section className="skill-profile">
-					<RequirementsList req={req.skills} set="skills" headers="true"/>
-					<RequirementsList req={req.qualifications} set="qualifications" headers="true"/>
-					<li className="parent">
-						<ul>
-							<li className="parent-name"><h4>location</h4></li>
-							<li className="child">
-								<span className="type">l</span>
-								{{location}}
-							</li>
-						</ul>
-					</li>
-				</section>
-			);
-		}
-	});
+
+  React.render(
+  	<SkillDisplay data={window.skillTree} headers={true} />,
+  	document.getElementById('discoverViewOnly')
+  );
 </script>
-<script type="text/jsx">
-	React.render(
-		<App />,
-		document.getElementById('app')
-	);
-</script>
-{{!-- <iframe src="/api/skillsets/{{id}}" frameborder="0" width="100%" height="500px"></iframe> --}}

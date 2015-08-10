@@ -1,3 +1,33 @@
+updateMatchList=function(matches, el){
+  keys = Object.keys(matches);
+  for(i in keys){
+    var key = keys[i];
+    if(document.getElementById(key)){
+      document.getElementById(key).children[4].children[0].innerHTML = matches[key].score.toFixed(2);  
+    }
+    
+  }
+}
+calcuateMatch = function(req, userSkills){
+  matches={};
+  keys = Object.keys(userSkills);
+  for(i in keys){
+    var key = keys[i];
+    matches[key] = diff(req,userSkills[key]);
+  }
+  return matches;
+}
+
+
+arrayToMapObj = function(arr){
+  map = {}
+  for(i in arr){
+    key = arr[i].id;
+    map[key] = arr[i]
+  }
+  return(map);
+}
+
 diff = function(reqs, skills, settings){
 	
 	var settings = settings || {};

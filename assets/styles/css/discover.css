@@ -1,66 +1,89 @@
-.discover {
-  overflow: auto;
-  height: auto; }
+* {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
-.menu {
-  width: 20%;
-  float: left; }
+.edit > .recursiveMenu > .switch {
+  align-items: center;
+  display: flex; }
+  .edit > .recursiveMenu > .switch .switch {
+    display: flex !important; }
 
-.menu a {
-  text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  width: 100%;
-  padding: 1rem 1rem;
-  box-sizing: border-box;
-  color: #8F8F8F; }
-
-.menu a.focused, .menu a.focused:hover {
-  border-right: 0px; }
-
-.menu a.focused {
-  color: white;
+.discover .edit {
+  display: flex;
   background: #99CC66; }
-
-.filter, .requirements {
-  width: 80%;
-  height: 50%;
-  float: right; }
-
-.filter {
-  background: #99CC66;
-  overflow: hidden; }
-
-.filter form {
-  padding: 2rem;
-  height: 2.5rem;
-  position: relative;
-  top: .5rem;
-  left: 1rem; }
-
-.filter form * {
+.discover .edit > .recursiveMenu {
+  display: flex !important; }
+.discover .recursiveMenu select {
+  margin: 0 1rem;
   display: inline-block;
-  margin-right: 2rem; }
+  max-width: 8rem; }
+.discover .recursiveMenu .switch .switch {
+  display: inline-block !important; }
+.discover .recursiveMenu .list {
+  background: #EBEBEB;
+  line-height: 3rem;
+  max-height: 9rem;
+  overflow: scroll;
+  list-style: none; }
+  .discover .recursiveMenu .list li {
+    padding: 0 7rem 0 1rem;
+    color: #8F8F8F; }
+  .discover .recursiveMenu .list .sel {
+    background: #99CC66;
+    color: white; }
+.discover .skillRange {
+  display: flex;
+  align-items: center; }
 
-.filter form input[type="range"] {
-  position: relative;
-  top: .25rem; }
-
-.skill-profile {
-  padding: .5rem 0 3rem; }
-  .skill-profile .child {
-    overflow: visible;
-    white-space: nowrap;
+.skillDisplay {
+  padding: .5rem 0 1.25rem; }
+  .skillDisplay .child {
     font-size: 90%; }
-  .skill-profile span {
-    display: inline;
-    white-space: nowrap; }
-
-.type {
-  margin-right: .25rem; }
-
-.delete {
-  color: red; }
+  .skillDisplay span {
+    display: inline; }
+  .skillDisplay li {
+    display: inline-block;
+    color: #8F8F8F;
+    width: 33%;
+    padding-right: 2rem;
+    margin-top: .5rem; }
+  .skillDisplay ul {
+    list-style: none;
+    padding-left: 0px; }
+  .skillDisplay li * {
+    display: inline; }
+  .skillDisplay .type {
+    background: #EBEBEB;
+    margin-right: .25rem;
+    box-sizing: border-box;
+    height: 1.25rem;
+    width: 1.25rem;
+    line-height: 1.25rem;
+    border-radius: 1.25rem;
+    display: inline-block;
+    font-size: 80%;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase; }
+  .skillDisplay .name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 12rem;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    top: .25rem; }
+  .skillDisplay .type.active {
+    background: #99CC66;
+    color: white; }
+  .skillDisplay .delete {
+    position: relative;
+    padding-left: .25rem;
+    opacity: 0; }
+  .skillDisplay li:hover .delete {
+    opacity: 100; }
 
 /*# sourceMappingURL=discover.css.map */
