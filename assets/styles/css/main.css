@@ -168,7 +168,7 @@ p {
     opacity: 100; }
 
 form * {
-  display: inlinw-block; }
+  display: inline-block; }
 form label {
   padding-top: 1rem; }
 form .field {
@@ -180,6 +180,8 @@ form .button, form nav.tabs li, nav.tabs form li {
 form.center {
   margin: auto;
   width: 18rem; }
+  form.center label {
+    text-align: left !important; }
   form.center * {
     display: block; }
   form.center .field {

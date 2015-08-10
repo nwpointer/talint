@@ -34,3 +34,9 @@ tail = function(list){p = copyArr(list);p.shift(); return p ? p :[false]};
 last = function(list){return list[list.length - 1] || [false]}
 head = function(list){return list[0] || [false]}
 isIndex = function(num){return !isNaN(parseInt(num))}
+
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}

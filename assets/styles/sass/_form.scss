@@ -21,6 +21,9 @@ form{
 form.center{
 	margin:auto;
 	width: 18rem;
+	label{
+		text-align: left !important;
+	}
 	*{
 		display:block;
 	}
