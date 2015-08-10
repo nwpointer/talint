@@ -17,7 +17,13 @@
 }
 
 .discover{
-
+	position:relative;
+	.suggest{
+		position: absolute;
+	    top: -2.5rem;
+	    right: 0;
+	    font-size: 90%;
+	}
 	.edit{
 		display: flex;
 		background: $action;

@@ -11,32 +11,39 @@
   .edit > .recursiveMenu > .switch .switch {
     display: flex !important; }
 
-.discover .edit {
-  display: flex;
-  background: #99CC66; }
-.discover .edit > .recursiveMenu {
-  display: flex !important; }
-.discover .recursiveMenu select {
-  margin: 0 1rem;
-  display: inline-block;
-  max-width: 8rem; }
-.discover .recursiveMenu .switch .switch {
-  display: inline-block !important; }
-.discover .recursiveMenu .list {
-  background: #EBEBEB;
-  line-height: 3rem;
-  max-height: 9rem;
-  overflow: scroll;
-  list-style: none; }
-  .discover .recursiveMenu .list li {
-    padding: 0 7rem 0 1rem;
-    color: #8F8F8F; }
-  .discover .recursiveMenu .list .sel {
-    background: #99CC66;
-    color: white; }
-.discover .skillRange {
-  display: flex;
-  align-items: center; }
+.discover {
+  position: relative; }
+  .discover .suggest {
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    font-size: 90%; }
+  .discover .edit {
+    display: flex;
+    background: #99CC66; }
+  .discover .edit > .recursiveMenu {
+    display: flex !important; }
+  .discover .recursiveMenu select {
+    margin: 0 1rem;
+    display: inline-block;
+    max-width: 8rem; }
+  .discover .recursiveMenu .switch .switch {
+    display: inline-block !important; }
+  .discover .recursiveMenu .list {
+    background: #EBEBEB;
+    line-height: 3rem;
+    max-height: 9rem;
+    overflow: scroll;
+    list-style: none; }
+    .discover .recursiveMenu .list li {
+      padding: 0 7rem 0 1rem;
+      color: #8F8F8F; }
+    .discover .recursiveMenu .list .sel {
+      background: #99CC66;
+      color: white; }
+  .discover .skillRange {
+    display: flex;
+    align-items: center; }
 
 .skillDisplay {
   padding: .5rem 0 1.25rem; }

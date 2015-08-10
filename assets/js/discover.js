@@ -60,7 +60,7 @@ Discover = React.createClass({
 
 		return(
 			<div className="discover">
-
+				<a className="suggest" href="mailto:nwpointer@gmail">suggest a skill</a>
 				<section className="edit">
 					<RecursiveMenu data={this.state.skillTree} ch={this.selectSkill} active={this.state.active} type="list" />
 					
