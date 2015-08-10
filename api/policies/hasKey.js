@@ -22,7 +22,7 @@ module.exports = function(req, res, next) {
   		// invite.save();
   		return next();
   	}else{
-  		return res.text('used');
+  		return res.status("404");
   	}	
   });
 
