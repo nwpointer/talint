@@ -17,7 +17,7 @@ module.exports = {
   	status: { 
   		type: "string", 
   		defaultsTo: "new",
-  		enum: ["new", "sent", "accepted", 'expired', 'revoked'] 
+  		enum: ["new", "sent", "accepted", 'expired', 'revoked', "request"] 
   	},
 
   	email:"STRING",

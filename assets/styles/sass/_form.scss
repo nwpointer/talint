@@ -1,0 +1,34 @@
+form{
+	//margin:auto;
+	//width: 18rem;
+	*{
+		display:inline-block;
+	}
+	label{
+		padding-top:1rem;
+	}
+	.field{
+		padding:.25rem;
+		//min-width: 18rem;
+	}
+	.button{
+		line-height: 1.5rem;
+		background: $action;
+		//min-width: 18rem;
+	}
+}
+
+form.center{
+	margin:auto;
+	width: 18rem;
+	*{
+		display:block;
+	}
+	.field{
+		min-width: 18rem;
+	}
+	.button{
+		min-width: 18rem;
+	}
+	
+}

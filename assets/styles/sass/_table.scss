@@ -1,0 +1,27 @@
+table, th, td {
+   border: 1px solid $fill-dark;
+}
+table{
+	@include span(12);
+	border-collapse: collapse;
+	text-align: left;
+	font-size: 90%;
+	th{
+		margin:0px !important;
+		padding:.75rem;
+		font-weight: 500;
+		color:$darker;
+		text-transform: capitalize;
+	}
+	td{
+		padding:.5rem .75rem;
+	}
+	tr:nth-child(2n){
+		background:$fill-light;
+	}
+	.face{
+		height:2rem;
+		position:relative;
+		// top:.5rem;
+	}
+}

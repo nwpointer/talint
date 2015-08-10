@@ -1,0 +1,37 @@
+.login{
+	@extend .block-white;
+	@include card(1);
+	
+	width:90%;
+	max-width:400px !important;
+	//display:inline-block;
+	margin:auto;
+	margin-top: span(1);
+
+	label, input, .button{
+		width:100%;
+		line-height: 2rem;
+		display:inline-block;
+		box-sizing:border-box;
+	}
+	label{
+		color:$fill-darkest;
+	}
+	input{
+		padding-left:.5rem;
+	}
+
+	.button{
+		margin-top:2rem;
+		text-align: center;
+		background:white;
+		font-size: 120%;
+		color:$fill-lightest;
+		background-color:$action;
+		border:0px;
+		&:hover{
+			@include card(1);
+		}
+	}
+
+}

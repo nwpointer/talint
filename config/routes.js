@@ -38,7 +38,7 @@ module.exports.routes = {
 
   'get /login': 'AuthController.login',
   'get /logout': 'AuthController.logout',
-  'get /register/:code': 'AuthController.register',
+  'get /register': 'AuthController.register',
 
   'post /auth/local': 'AuthController.callback',
   'post /auth/local/:action': 'AuthController.callback',
@@ -82,6 +82,8 @@ module.exports.routes = {
   // invites
 
   'get /invites' : "InvitesController.all",
+  'get /invites/request' : "InvitesController.request",
+  'post /invites/request' : "InvitesController.registerRequest",
   'get /invites/:id' : "InvitesController.one",
   'get /invites/:id/send' : "InvitesController.send",
   'get /invites/:id/cancel' : "InvitesController.cancel",

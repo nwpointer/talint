@@ -31,7 +31,7 @@ module.exports.policies = {
 
   AuthController : {
     '*' : ['passport'],
-    register : ['hasKey']
+    //register : ['hasKey']
   }
 
 

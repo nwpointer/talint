@@ -18,6 +18,19 @@ module.exports = {
 
 	},
 
+	request: function(req, res){
+		res.view({
+		  layout: '../../views/basic/layouts/blank'
+		});
+	},
+
+	registerRequest: function(req, res){
+		args = req.params.all();
+		// make new invite, state request
+		// notify moderator
+		return res.json({args: args});
+	},
+
 	all: function(req,res){
 		Invites.find().exec(function(err, records){
 			records = {invites:records};

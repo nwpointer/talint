@@ -1,0 +1,52 @@
+<div class="login">
+	<div class="logo">
+		<h1 class="name">TalInt</h1>
+		<span class="slogan">
+			discover true potential
+		</span>
+		<p>
+			enter your information below and our community manager will review your application.
+		</p>
+	</div>
+
+	{{!-- <form class="form-inline" role="form" action="/invites/request" method="post" >
+		<label for="firstname">first name</label>
+		<input type="text" name="firstname" placeholder="Elon" class="field" >
+
+		<label for="lastname">last name</label>
+		<input type="text" name="lastname" placeholder="Musk" class="field" >
+
+		<label for="identifier">Email</label>
+		<input type="text" name="identifier" placeholder="Username or Email" class="field" >
+
+		<label for="message">Message</label>
+		<textarea class="field" name="message" id="message" cols="30" rows="10"></textarea>
+
+		<button class="button" type="submit">Request Access</button>
+
+	</form> --}}
+
+	<form class="form-inline" action="invites:create" id="addInvites">
+		<label for="firstname">name</label>
+		<input class="field" type="text" name="firstname" id="firstname" placeholder="first">
+
+		<input class="field" type="text" name="lastname" id="lastname" placeholder="last">
+
+		<label for="email">email</label>
+		<input class="field" type="text" name="email" id="email">
+
+		<input class="field" type="hidden" name="status" id="status" value="request">
+
+		<input class="button" type="submit" value="Request Access">
+	</form>
+
+	<script>
+		addInvites = new jsonForm("addInvites", function(data){
+			var Invites = new crud("invites");
+			Invites.create(data);
+		});
+	</script>
+</div>
+
+
+

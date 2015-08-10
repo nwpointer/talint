@@ -1,0 +1,31 @@
+nav.tabs ul{
+	list-style: none;
+	// overflow: auto;
+	li{
+		display:inline;
+	}
+}
+
+nav.tabs{
+	background:$fill-lightest;
+	padding-bottom: 2px !important;
+	padding-top:0px;
+	border-bottom:1px solid $fill-dark;
+}
+
+nav.tabs li{
+	background:$fill;
+	@extend .button;
+	// position: relative;
+	// top:1px;
+	border-bottom:0px;
+	a{
+		color:$fill-darkest;
+		&:hover{
+			color:$action;
+		}
+	}
+}
+nav.tabs li.active{
+	background:white;
+}	

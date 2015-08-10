@@ -6,6 +6,15 @@
 	font-weight: 100;
 }
 
+.fyi{
+	float:right;
+	@extend .small;
+}
+
+.delete{
+	color:red;
+}
+
 a{
 	color:$action;
 }
@@ -28,6 +37,4 @@ p{
 	line-height: 1.5rem;
 }
 
-.delete{
-	color:red;
-}
+
