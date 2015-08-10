@@ -132,7 +132,7 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
-    console.log(req.params.all());
+    code = req.params.code;
     function tryAgain (err) {
       console.log(req.params.all());
       // Only certain error messages are returned via req.flash('error', someError)
@@ -154,7 +154,7 @@ var AuthController = {
 
       switch (action) {
         case 'register':
-          res.redirect('/register');
+          res.redirect('/register/' + code);
           break;
         case 'disconnect':
           res.redirect('back');
@@ -165,6 +165,7 @@ var AuthController = {
     }
 
     passport.callback(req, res, function (err, user, challenges, statuses) {
+      code = req.params.code;
       if (err || !user) {
         return tryAgain(challenges);
       }
@@ -173,13 +174,19 @@ var AuthController = {
         if (err) {
           return tryAgain(err);
         }
-        
-        // Mark the session as authenticated to work with default Sails sessionAuth.js policy
-        req.session.authenticated = true
-        
-        // Upon successful login, send the user to the homepage were req.user
-        // will be available.
-        res.redirect('/');
+
+        Invites.update({code:code}, {status:"accepted"}, function(err, invite){
+          if (err) {
+            return tryAgain(err);
+          }
+          console.log(invite);
+          // Mark the session as authenticated to work with default Sails sessionAuth.js policy
+          req.session.authenticated = true
+          
+          // Upon successful login, send the user to the homepage were req.user
+          // will be available.
+          res.redirect('/');
+        })
       });
     });
   },
