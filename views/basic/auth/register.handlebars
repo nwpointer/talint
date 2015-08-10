@@ -18,13 +18,16 @@
 	</form> --}}
 
 	<form class="form-inline" role="form" action="/auth/local/register/{{code}}" method="post">
+	<label for="username">username</label>
 	  <input type="text" name="username" placeholder="Username" 
 	  value="testUser">
+	  <label for="email">email</label>
 	  <input type="text" name="email" placeholder="Email" 
 	  value="testUser@gmail.com">
+	  <label for="password">password</label>
 	  <input type="password" name="password" placeholder="Password" 
 	  value="testUser">
-	  <button type="submit">Sign up</button>
+	  <button class="button" type="submit">Sign up</button>
 	</form>
 
 
