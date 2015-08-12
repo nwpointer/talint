@@ -27,12 +27,16 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': ['passport', 'sessionAuth'],
+  '*': ['passport' ]//  , 'sessionAuth'],
 
-  AuthController : {
-    '*' : ['passport'],
-    register : ['hasKey']
-  }
+  // 'auth': {
+  //     '*': ['passport']
+  // }
+
+  // AuthController : {
+  //   '*' : ['passport'],
+  //   //register : ['hasKey']
+  // }
 
 
   /***************************************************************************

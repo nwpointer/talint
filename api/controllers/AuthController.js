@@ -51,6 +51,7 @@ var AuthController = {
       providers : providers, 
       errors    : req.flash('error'),
       layout: '../../views/basic/layouts/blank'
+
     });
   },
 
@@ -93,15 +94,8 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
-    code = req.params.code;
-    // Invites.findOne({ code: code}, function(err, invite){
-    //   console.log(invite);
-    // })
-
     res.view({
-      errors: req.flash('error'),
-      code: code,
-      layout: '../../views/basic/layouts/blank'
+      errors: req.flash('error')
     });
   },
 
@@ -132,9 +126,8 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
-    code = req.params.code;
     function tryAgain (err) {
-      console.log(req.params.all());
+
       // Only certain error messages are returned via req.flash('error', someError)
       // because we shouldn't expose internal authorization errors to the user.
       // We do return a generic error and the original request body.
@@ -154,7 +147,7 @@ var AuthController = {
 
       switch (action) {
         case 'register':
-          res.redirect('/register/' + code);
+          res.redirect('/register');
           break;
         case 'disconnect':
           res.redirect('back');
@@ -165,7 +158,6 @@ var AuthController = {
     }
 
     passport.callback(req, res, function (err, user, challenges, statuses) {
-      code = req.params.code;
       if (err || !user) {
         return tryAgain(challenges);
       }
@@ -174,19 +166,13 @@ var AuthController = {
         if (err) {
           return tryAgain(err);
         }
-
-        Invites.update({code:code}, {status:"accepted"}, function(err, invite){
-          if (err) {
-            return tryAgain(err);
-          }
-          console.log(invite);
-          // Mark the session as authenticated to work with default Sails sessionAuth.js policy
-          req.session.authenticated = true
-          
-          // Upon successful login, send the user to the homepage were req.user
-          // will be available.
-          res.redirect('/');
-        })
+        
+        // Mark the session as authenticated to work with default Sails sessionAuth.js policy
+        req.session.authenticated = true
+        
+        // Upon successful login, send the user to the homepage were req.user
+        // will be available.
+        res.redirect('/');
       });
     });
   },

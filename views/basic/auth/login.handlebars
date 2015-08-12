@@ -2,7 +2,7 @@
   <a href="/auth/{{slug}}">{{name}}</a>
 {{/each}}
 
-<div class="login">
+{{!-- <div class="login">
 	<div class="logo">
 		<h1 class="name">TalInt</h1>
 		<span class="slogan">
@@ -16,7 +16,13 @@
 		 <label for="password">password</label>
 		 <input type="password" name="password" placeholder="Password" class="field" >
 		 <button class="button" type="submit">Sign in</button>
-</div>
+</div> --}}
+{{errors}}
 
+<form role="form" action="/auth/local" method="post">
+  <input type="text" name="identifier" placeholder="Username or Email">
+  <input type="password" name="password" placeholder="Password">
+  <button type="submit">Sign in</button>
+</form>
 
 
