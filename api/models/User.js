@@ -3,7 +3,7 @@ var User = {
   attributes: {
     username  : { type: 'string', unique: true },
     firstname : { type: 'string' },
-	  lastname  : { type: 'string' },
+	lastname  : { type: 'string' },
     email     : { type: 'email',  unique: true },
     phone     : { type: 'string' },
     biography : { type: 'string' },
