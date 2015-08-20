@@ -37,9 +37,12 @@
     list-style: none; }
     .discover .recursiveMenu .list li {
       padding: 0 7rem 0 1rem;
-      color: #8F8F8F; }
+      color: #8F8F8F;
+      cursor: pointer; }
+      .discover .recursiveMenu .list li:hover {
+        background: #e1e1e1; }
     .discover .recursiveMenu .list .sel {
-      background: #99CC66;
+      background: #99CC66 !important;
       color: white; }
   .discover .skillRange {
     display: flex;

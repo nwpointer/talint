@@ -118,9 +118,12 @@ p {
     list-style: none; }
     .discover .recursiveMenu .list li {
       padding: 0 7rem 0 1rem;
-      color: #8F8F8F; }
+      color: #8F8F8F;
+      cursor: pointer; }
+      .discover .recursiveMenu .list li:hover {
+        background: #e1e1e1; }
     .discover .recursiveMenu .list .sel {
-      background: #99CC66;
+      background: #99CC66 !important;
       color: white; }
   .discover .skillRange {
     display: flex;
@@ -247,9 +250,11 @@ nav.tabs li.active {
   padding: 0.5rem 3.38983%;
   line-height: 2rem;
   border: 1px solid #EBEBEB;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
   .button a, nav.tabs li a {
-    text-decoration: none; }
+    text-decoration: none;
+    cursor: pointer; }
 
 .button.green, nav.tabs li.green {
   background: #99CC66;
@@ -383,13 +388,13 @@ nav#account {
   padding: .5rem 1rem;
   display: block;
   width: 100%;
-  overflow: auto;
   position: absolute; }
 
 nav#account ul {
   padding: .5rem;
   box-sizing: border-box;
   display: none;
-  width: 100%; }
+  min-width: 100%;
+  list-style: none; }
 
 /*# sourceMappingURL=main.css.map */

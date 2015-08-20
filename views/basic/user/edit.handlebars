@@ -28,13 +28,13 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
 	<div class="grid-8">
 		<div class="persona">
-			<img class="face" src="/images/face-bg.png" height="38" width="41" alt="">					
+			<img class="face" src="/images/user.png" height="38" width="41" alt="">					
 			<div class="identity">
 				<h1 class='name'>
 					{{firstname}} {{lastname}}
 				</h1>	
 				<span class="title">
-					Assistant general manager, Research Developement
+					{{title}}
 				</span>
 			</div>	
 		</div>
@@ -42,7 +42,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	<aside class="grid-4 right">
 	<br><br>
 	{{#unless owns}}
-		<a href="#" class="button green md">request profile update</a>
+		{{!-- <a href="#" class="button green md">request profile update</a> --}}
 		{{/unless}}
 	</aside>
 </div>
@@ -50,7 +50,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	<div id="discover"></div>
 
 	<br>
-	<a onclick="storeSkillProfile({{id}})">save skills</a>
+	<a class="button" onclick="storeSkillProfile({{id}})">save skills</a>
 `
 </div>
 <div class="block-white bd-top">

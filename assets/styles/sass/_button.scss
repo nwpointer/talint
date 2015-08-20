@@ -3,11 +3,14 @@
 	line-height: 2rem;
 	border: 1px solid $fill-dark;
 	text-decoration: none;
+	cursor:pointer;
 	a{
 		text-decoration: none;
+		cursor:pointer;
 	} 
 	// box-sizing:border-box;
 }
+
 
 .button.green{
 	background:$action;

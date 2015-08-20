@@ -53,9 +53,13 @@
 			li{
 				padding:0 7rem 0 1rem;
 				color:$fill-darkest;
+				cursor:pointer;
+				&:hover{
+					background:darken(#EBEBEB, 4%);
+				}
 			}
 			.sel{
-				background: $action;
+				background: $action !important;
 				color: white;
 			}
 		}

@@ -9,11 +9,12 @@
   <div class="persona sm">
     <a href="/user/{{req.user.id}}">
       <span class="identity">{{req.user.firstname}} {{req.user.lastname}} </span>
-      <img class="face" src="/images/face.png" height="38" width="41" alt="">
+      <img class="face" src="/images/user.png" height="38" width="41" alt="">
       <nav id="account">
         <ul>
           {{#if req.session.authenticated}}
-            <a href="/logout">logout</a>
+            <li><a href="/user/{{req.user.id}}">profile</a></li>
+            <li><a href="/logout">logout</a></li>
           {{else}}
             <li><a href="/login">login</a></li>
             <li><a href="/register">signup</a></li>

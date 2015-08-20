@@ -138,7 +138,7 @@ nav#account{
 	padding:.5rem 1rem;
 	display:block;
 	width:100%;
-	overflow: auto;
+	// overflow: auto;
 	position:absolute;
 }
 nav#account ul {
@@ -147,5 +147,6 @@ nav#account ul {
 	box-sizing:border-box;
 	display:none;
 	@extend .card;
-	width:100%;
+	min-width:100%;
+	list-style: none;
 }
