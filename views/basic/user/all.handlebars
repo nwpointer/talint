@@ -8,6 +8,8 @@
 
 		window.userSkills = {};
 
+		window.useLocalStorage = true;
+
 		function decodeHtml(html) {
 		    var txt = document.createElement("textarea");
 		    txt.innerHTML = html;
@@ -36,34 +38,34 @@
 			</thead>
 			<tbody class="list">
 				{{#each users}}
-				<script>		
-					userSkills[{{id}}] = arrayToMapObj(leaves(eval(decodeHtml("{{fake}}"))));
-				</script>
-				 <tr id="{{id}}">
-				 	<td class="name">
-				 		<a href="user/{{id}}">{{firstname}} {{lastname}}</a>
-				 	</td>
-				 	<td class="email">
-				 		<a href="user/{{id}}">{{email}}</a>
-				 	</td>
-				 	<td>
-				 		{{#if location}}
-				 			{{location}}
-				 		{{else}}
-				 			-
-				 		{{/if}}
-				 	</td>
-				 	<td>
-				 		{{#if availability}}
-				 			{{availability}}/5
-				 		{{else}}
-				 			-
-				 		{{/if}}
-				 	</td>
-				 	<td>
-						<span>100</span>%
-				 	</td>
-				 </tr>
+					 <tr id="{{id}}">
+					 	<td class="name">
+					 		<a href="user/{{id}}">{{firstname}} {{lastname}}</a>
+					 		<script>		
+					 			userSkills[{{id}}] = arrayToMapObj(leaves(eval(decodeHtml("{{fake}}"))));
+					 		</script>
+					 	</td>
+					 	<td class="email">
+					 		<a href="user/{{id}}">{{email}}</a>
+					 	</td>
+					 	<td class="location">
+					 		{{#if location}}
+					 			{{location}}
+					 		{{else}}
+					 			
+					 		{{/if}}
+					 	</td>
+					 	<td class="availability"> 
+					 		{{#if availability}}
+					 			{{availability}}/5
+					 		{{else}}
+					 			
+					 		{{/if}}
+					 	</td>
+					 	<td class="match">
+							<span>100</span>
+					 	</td>
+					 </tr>
 				{{/each}}
 			</tbody>
 		</table>

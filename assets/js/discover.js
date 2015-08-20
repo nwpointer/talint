@@ -1,10 +1,16 @@
 Discover = React.createClass({
 	getInitialState : function(){
-		return {
-			skillTree: window.skillTree,
-			active:["Skills"]
+		if(window.localStorage.skillTree && window.useLocalStorage){
+			return JSON.parse(localStorage.skillTree)
+		}else{
+			return {
+						skillTree: window.skillTree,
+						active:["Skills"]
+					}
 		}
 	},
+
+
 
 	selectSkill: function(value, distanceFromTail){	
 		if(Array.isArray(value)){
@@ -41,7 +47,12 @@ Discover = React.createClass({
 			return obj;
 		};
 		newSkillTree = update(rank, "rank", id, this.state.skillTree);
-		this.setState({active:this.state.active, skillTree:newSkillTree});
+		this.setState({active:this.state.active, skillTree:newSkillTree}, initUserList);
+	},
+
+	componentDidUpdate: function(){
+		//JSON.stringify(this.state)
+		window.localStorage.setItem('skillTree', JSON.stringify(this.state))
 	},
 
 	render: function(){
