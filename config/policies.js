@@ -36,6 +36,14 @@ module.exports.policies = {
   AuthController : {
     '*': ['passport'],
     register : ['passport', 'hasKey']
+  },
+
+  InvitesController:{
+    '*': ['passport', 'sessionAuth', 'isAdmin']
+  },
+
+  SkillsController:{
+    '*': ['passport', 'sessionAuth', 'isAdmin']
   }
 
 

@@ -75,7 +75,7 @@ var AuthController = {
     // mark the user as logged out for auth purposes
     req.session.authenticated = false;
     
-    res.redirect('/user');
+    res.redirect('/');
   },
 
   /**
@@ -178,6 +178,9 @@ var AuthController = {
           if (err) {
             return tryAgain(err);
           }
+
+          req.session.role = user.role
+
           
           // Mark the session as authenticated to work with default Sails sessionAuth.js policy
           req.session.authenticated = true

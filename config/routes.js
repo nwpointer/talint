@@ -89,5 +89,6 @@ module.exports.routes = {
   'get /invites/:id/send' : "InvitesController.send",
   'get /invites/:id/cancel' : "InvitesController.cancel",
 
+  // '/api/*' : {policy: 'isAdmin' }
 
 };

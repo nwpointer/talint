@@ -5,6 +5,11 @@ var User = {
     firstname : { type: 'string' },
 	lastname  : { type: 'string' },
     title     : { type: 'string' },
+    role      : {
+        type: "string", 
+        defaultsTo: "user",
+        enum: ["user", "admin"] 
+    },
     email     : { type: 'email',  unique: true },
     phone     : { type: 'string' },
     biography : { type: 'string' },
