@@ -10,8 +10,6 @@ Discover = React.createClass({
 		}
 	},
 
-
-
 	selectSkill: function(value, distanceFromTail){	
 		if(Array.isArray(value)){
 			activeCopy = value;
@@ -47,7 +45,7 @@ Discover = React.createClass({
 			return obj;
 		};
 		newSkillTree = update(rank, "rank", id, this.state.skillTree);
-		this.setState({active:this.state.active, skillTree:newSkillTree}, initUserList);
+		this.setState({active:this.state.active, skillTree:newSkillTree});
 	},
 
 	componentDidUpdate: function(){

@@ -69,6 +69,31 @@
 		align-items: center;
 
 	}
+
+	.input{
+		margin-top: 1.5rem;
+	}
+
+	.labels{
+		position:relative;
+		color:white;
+		.from{
+			position: absolute;
+			left: 0px;
+			cursor:pointer;
+		}
+		.to{
+			position: absolute;
+			right: 0px;
+			cursor:pointer;
+		}
+		.value{
+			display: inline-block;
+			width: 100%;
+			text-align: center;
+			font-size: 80%;
+		}
+	}
 		
 }
 
@@ -114,13 +139,22 @@
 	}
 
 	.name{
+		cursor:pointer;
 	    white-space: nowrap;
-	    text-overflow: ellipsis;
-	    max-width: 12rem;
+	    position: relative;
+	    top: .45rem;
 	    display: inline-block;
 	    overflow: hidden;
-	    position: relative;
-	    top: .25rem;
+	    max-width: 12rem;
+	    span{
+	    	text-overflow: ellipsis;
+	    	max-width: 10rem;
+	    	display: inline-block;
+	    	overflow: hidden;
+	    }
+	    &:hover{
+			text-decoration: underline;
+	    }
 
 	}
 
@@ -131,6 +165,7 @@
 
 	.delete{
 		position:relative;
+		cursor:pointer;
 		//top:-.1rem;
 		padding-left:.25rem;
 		opacity: 0;

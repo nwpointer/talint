@@ -30,5 +30,9 @@
 	  <button class="button" type="submit">Sign up</button>
 	</form>
 
+	{{#each providers}}
+	  <a href="/auth/{{slug}}" role="button">{{name}}</a>
+	{{/each}}
+
 
 </div>

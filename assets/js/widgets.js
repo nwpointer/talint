@@ -54,15 +54,30 @@ Range = React.createClass({
 		i = this.props.data.id
 		this.props.ch(v,i);
 	},
+	up:function(){
+		var data = this.props.data;
+		data.rank < (data.max || 10) && this.props.ch( (parseInt(data.rank)+1) , data.id)
+	},
+	down:function(){
+		var data = this.props.data;
+		data.rank > (data.min || 0) && this.props.ch( (parseInt(data.rank)-1) , data.id)
+	},
 	render: function(){
 		data = this.props.data
 		return(
 			<div className="input">
+
 				<input 
 					type="range" value={data.rank || 0}
 					max={data.max || 10} min={data.min || 0} 
 					onChange={this.ch}
 				/>
+				<div className="labels">
+				<span onClick={this.down}  className="from">-</span>
+				<span className="value">{data.rank || 0} {data.unit}</span>
+				<span onClick={this.up} className="to">+</span>
+
+				</div>
 			</div>
 		)
 	}

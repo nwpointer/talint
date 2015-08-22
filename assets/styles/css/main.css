@@ -128,6 +128,24 @@ p {
   .discover .skillRange {
     display: flex;
     align-items: center; }
+  .discover .input {
+    margin-top: 1.5rem; }
+  .discover .labels {
+    position: relative;
+    color: white; }
+    .discover .labels .from {
+      position: absolute;
+      left: 0px;
+      cursor: pointer; }
+    .discover .labels .to {
+      position: absolute;
+      right: 0px;
+      cursor: pointer; }
+    .discover .labels .value {
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+      font-size: 80%; }
 
 .skillDisplay {
   padding: .5rem 0 1.25rem; }
@@ -160,18 +178,26 @@ p {
     font-weight: 400;
     text-transform: uppercase; }
   .skillDisplay .name {
+    cursor: pointer;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    max-width: 12rem;
+    position: relative;
+    top: 4.5rem;
     display: inline-block;
     overflow: hidden;
-    position: relative;
-    top: .25rem; }
+    max-width: 12rem; }
+    .skillDisplay .name span {
+      text-overflow: ellipsis;
+      max-width: 10rem;
+      display: inline-block;
+      overflow: hidden; }
+    .skillDisplay .name:hover {
+      text-decoration: underline; }
   .skillDisplay .type.active {
     background: #99CC66;
     color: white; }
   .skillDisplay .delete {
     position: relative;
+    cursor: pointer;
     padding-left: .25rem;
     opacity: 0; }
   .skillDisplay li:hover .delete {

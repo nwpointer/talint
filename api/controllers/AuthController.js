@@ -115,6 +115,7 @@ var AuthController = {
    * @param {Object} res
    */
   provider: function (req, res) {
+    console.log(req,res);
     passport.endpoint(req, res);
   },
 
