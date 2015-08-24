@@ -1,14 +1,14 @@
 Discover = React.createClass({
 	getInitialState : function(){
 		//remove earlier version of localstorage
-		if(localStorage.skillTree && JSON.parse(localStorage.skillTree).skillTree){
-			localStorage.removeItem("skillTree");
-		}
 
 		if(window.useLocalStorage){
+			if(localStorage.skillTree && JSON.parse(localStorage.skillTree).skillTree){
+				localStorage.removeItem("skillTree");
+			}
 			return {
-				skillTree: JSON.parse(localStorage.skillTree) || window.skillTree,
-				active: JSON.parse(localStorage.active) || [],
+				skillTree: localStoreage.skillTree ? JSON.parse(localStorage.skillTree) : window.skillTree,
+				active: localStorage.active ? JSON.parse(localStorage.active) : [],
 				users : this.props.users || []
 			}
 		}else{
