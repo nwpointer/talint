@@ -2,7 +2,7 @@ Discover = React.createClass({
 	getInitialState : function(){
 		//remove earlier version of localstorage
 		if(JSON.parse(localStorage.skillTree).skillTree){
-			localStorage.removeItem(skillTree);
+			localStorage.removeItem("skillTree");
 		}
 
 		if(window.useLocalStorage){
