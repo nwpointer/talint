@@ -85,6 +85,12 @@ Discover = React.createClass({
 			)
 		})
 
+		table = function(){
+			if(self.state.users && self.state.users.length){
+				return(<UserTable users={self.state.users} />)
+			}
+		}
+
 		if(this.state.users.length){
 			this.updateMatch();
 		}
@@ -102,7 +108,7 @@ Discover = React.createClass({
 
 				<SkillDisplay data={this.state.skillTree} ch={this.selectSkill} dl={this.deleteSkill} />
 
-				<UserTable users={this.state.users} />
+				{table()}
 
 			</div>
 		)
