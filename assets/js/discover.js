@@ -7,7 +7,7 @@ Discover = React.createClass({
 				localStorage.removeItem("skillTree");
 			}
 			return {
-				skillTree: localStoreage.skillTree ? JSON.parse(localStorage.skillTree) : window.skillTree,
+				skillTree: localStorage.skillTree ? JSON.parse(localStorage.skillTree) : window.skillTree,
 				active: localStorage.active ? JSON.parse(localStorage.active) : [],
 				users : this.props.users || []
 			}
