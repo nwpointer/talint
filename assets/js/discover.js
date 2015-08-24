@@ -1,12 +1,22 @@
 Discover = React.createClass({
 	getInitialState : function(){
-		if(window.localStorage.skillTree && window.useLocalStorage){
-			return JSON.parse(localStorage.skillTree)
+		//remove earlier version of localstorage
+		if(JSON.parse(localStorage.skillTree).skillTree){
+			localStorage.removeItem(skillTree);
+		}
+
+		if(window.useLocalStorage){
+			return {
+				skillTree: JSON.parse(localStorage.skillTree) || window.skillTree,
+				active: JSON.parse(localStorage.active) || [],
+				users : this.props.users || []
+			}
 		}else{
 			return {
-						skillTree: window.skillTree,
-						active:["Skills"]
-					}
+				skillTree: window.skillTree,
+				active:["Skills"],
+				users : this.props.users || []
+			}
 		}
 	},
 
@@ -48,9 +58,22 @@ Discover = React.createClass({
 		this.setState({active:this.state.active, skillTree:newSkillTree});
 	},
 
+	updateMatch: function(){
+		Matches = calcuateMatch(
+					arrayToMapObj(leaves(this.state.skillTree)), userSkills
+				  )
+		keys = Object.keys(Matches);
+		users = this.state.users;
+		console.log(keys);
+		keys.forEach(function(v,i){
+			users[i].match = Matches[v].score;
+		})
+	},
+
 	componentDidUpdate: function(){
 		//JSON.stringify(this.state)
-		window.localStorage.setItem('skillTree', JSON.stringify(this.state))
+		window.localStorage.setItem('skillTree', JSON.stringify(this.state.skillTree))
+		window.localStorage.setItem('active', JSON.stringify(this.state.active))
 	},
 
 	render: function(){
@@ -62,10 +85,7 @@ Discover = React.createClass({
 			)
 		})
 
-		updateMatchList(
-			calcuateMatch(
-				arrayToMapObj(leaves(this.state.skillTree)), userSkills
-			), "#users");
+		this.updateMatch();
 
 		return(
 			<div className="discover">
@@ -79,6 +99,8 @@ Discover = React.createClass({
 				</section>
 
 				<SkillDisplay data={this.state.skillTree} ch={this.selectSkill} dl={this.deleteSkill} />
+
+				<UserTable users={this.state.users} />
 
 			</div>
 		)

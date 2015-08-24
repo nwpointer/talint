@@ -15,6 +15,21 @@
 		    txt.innerHTML = html;
 		    return txt.value;
 		}
+
+		Users = [];
+
+		{{#each users}}
+			Users.push({
+				name: "{{firstname}} {{lastname}}",
+				id: "{{id}}",
+				email: "{{email}}",
+				location: "{{location}}",
+				availability: "{{availability}}",
+				match: 100,
+				//skills: arrayToMapObj(leaves(eval(decodeHtml("{{fake}}"))))
+			});
+			userSkills[{{id}}] = arrayToMapObj(leaves(eval(decodeHtml("{{fake}}"))));
+		{{/each}}
 		
 		
 	</script>
@@ -23,7 +38,9 @@
 	<br>
 	<div id="discover"></div>
 
-	<div id="users">
+	<div id="userTable"></div>
+
+	{{!-- <div id="users">
 		<table border="1">
 			<thead>
 				<tr>
@@ -69,12 +86,14 @@
 				{{/each}}
 			</tbody>
 		</table>
-	</div>
+	</div> --}}
 </div>
 
 <script type="text/jsx">
 	React.render(
-		<App />,
-		document.getElementById('app')
+	  <Discover users={Users}>
+	  	
+	  </Discover>,
+	  document.getElementById('discover')
 	);
 </script>

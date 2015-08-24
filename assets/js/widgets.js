@@ -82,3 +82,30 @@ Range = React.createClass({
 		)
 	}
 })
+
+var Progressbar = React.createClass({
+
+  render: function() {
+
+    var completed = +this.props.completed;
+    if (completed < 0) {completed = 0};
+    if (completed > 100) {completed = 100};
+
+    colorRange =['#c5c5c5', '#0BD318', '#0BD318'];
+
+    console.log();
+
+    var style = {
+      backgroundColor: this.props.color || colorRange[~~((completed)/(101/colorRange.length))],
+      width: completed + '%',
+      transition: "width 200ms",
+      height: this.props.height || 10
+    };
+
+    return (
+      <div className="progressbar-container" >
+        <div className="progressbar-progress" style={style}>{this.props.children}</div>
+      </div>
+    );
+  }
+});
