@@ -12,7 +12,8 @@ var User = {
     },
     email     : { type: 'email',  unique: true },
     phone     : { type: 'string' },
-    biography : { type: 'string' },
+    linkdin   : { type: 'string' },
+    biography : { type: 'string', size:260 },
     availability: {type:'integer' }, //also likely to change
     location : { type: 'string' },
     // link model  

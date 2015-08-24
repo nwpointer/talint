@@ -66,6 +66,14 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 			<p>{{phone}}</p>
 		</div>
 		<div class="grid-6">
+			<h4>linkdin</h4>
+			{{#if linkdin}}
+				<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+				<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/{{linkdin}}" data-format="hover" data-text="quick view"></script>
+			{{/if}}
+			
+		</div>
+		<div class="grid-6">
 			<h4>availability</h4>
 			<p>{{availability}} / 5</p>
 
