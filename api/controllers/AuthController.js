@@ -101,8 +101,11 @@ var AuthController = {
           errors: req.flash('error'),
           layout: '../../views/basic/layouts/blank',
           code: code,
-          invite: found
+          invite: found,
+          username: found.email.split("@")[0]
         });
+      }else{
+        res.redirect('/');
       }
     });
    
@@ -173,7 +176,16 @@ var AuthController = {
         return tryAgain(challenges);
       }
 
-      Invites.update({code:code}, {status: "accepted"}).exec(function(err, newInvite){
+      Invites.update({code:code}, {status: "sent"}).exec(function(err, newInvite){
+
+        user.firstname = newInvite[0].firstname
+        user.lastname = newInvite[0].lastname
+
+        user.save(function (err, u) {
+          if(err){
+            console.log(err);
+          }
+        })
 
         req.login(user, function (err) {
           if (err) {

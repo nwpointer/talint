@@ -18,15 +18,14 @@
 	</form> --}}
 
 	<form class="form-inline" role="form" action="/auth/local/register/{{code}}" method="post">
-	<label for="username">username</label>
-	  <input type="text" name="username" placeholder="Username" 
-	  value="testUser">
+	{{!-- <label for="username">username</label> --}}
+	  <input type="hidden" name="username" value="{{username}}">
 	  <label for="email">email</label>
 	  <input type="text" name="email" placeholder="Email" 
-	  value="testUser@gmail.com">
+	  value="{{invite.email}}"">
 	  <label for="password">password</label>
-	  <input type="password" name="password" placeholder="Password" 
-	  value="testUser">
+	  <input autofocus type="password" name="password" placeholder="Password" >
+	  <small class="grey">(password must be at least 8 characters long)</small>
 	  <button class="button" type="submit">Sign up</button>
 	</form>
 
