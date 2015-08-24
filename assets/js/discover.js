@@ -85,7 +85,9 @@ Discover = React.createClass({
 			)
 		})
 
-		this.updateMatch();
+		if(this.state.users.length){
+			this.updateMatch();
+		}
 
 		return(
 			<div className="discover">
