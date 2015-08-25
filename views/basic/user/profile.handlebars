@@ -42,20 +42,17 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	</div>
 	<aside class="grid-4 right">
 	<br><br>
-	{{#unless owns}}
-		{{!-- <a href="#" class="button green md">request profile update</a> --}}
-		{{/unless}}
+	{{#if owns}}
+		<a class="button green md" style="position: relative;left: .8rem;" href="/user/{{id}}/edit">edit profile</a>
+	{{/if}}
 	</aside>
 </div>
 <div class="block-white">
 	<div id="discoverViewOnly"></div>
 
 	<br>
-	{{#if owns}}
-	<a class="button" href="/user/{{id}}/edit">edit</a>
-	{{/if}}
 </div>
-<div class="block-white bd-top">
+<div class="block-white bd-top bio">
 	<div class="grid-6">
 		<div class="grid-6">
 			<h4>email</h4>
@@ -88,10 +85,6 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 <div class="block-white">
 
 	
-
-	{{#if owns}}
-		<a class="button" href="/user/{{id}}/bio">edit</a>
-	{{/if}}
 
 	
 	

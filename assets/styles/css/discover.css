@@ -11,6 +11,9 @@
   .edit > .recursiveMenu > .switch .switch {
     display: flex !important; }
 
+.bio p {
+  min-height: 1.5rem; }
+
 .discover {
   position: relative; }
   .discover .suggest {

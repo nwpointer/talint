@@ -92,6 +92,9 @@ p {
   .edit > .recursiveMenu > .switch .switch {
     display: flex !important; }
 
+.bio p {
+  min-height: 1.5rem; }
+
 .discover {
   position: relative; }
   .discover .suggest {
@@ -181,7 +184,7 @@ p {
     cursor: pointer;
     white-space: nowrap;
     position: relative;
-    top: 4.5rem;
+    top: .45rem;
     display: inline-block;
     overflow: hidden;
     max-width: 12rem; }
@@ -203,8 +206,6 @@ p {
   .skillDisplay li:hover .delete {
     opacity: 100; }
 
-form * {
-  display: inline-block; }
 form label {
   padding-top: 1rem; }
 form .field {
