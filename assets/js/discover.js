@@ -64,7 +64,7 @@ Discover = React.createClass({
 				  )
 		keys = Object.keys(Matches);
 		users = this.state.users;
-		console.log(keys);
+		//console.log(keys);
 		keys.forEach(function(v,i){
 			users[i].match = Matches[v].score;
 		})

@@ -9,9 +9,25 @@ module.exports = {
 
 	all: function(req, res){
 		// try to get all the users, return to view
-		User.find({}).exec(function findCB(err, found){
+		User.find({}).populate('followers').exec(function findCB(err, found){
+			_.each(found, function(v){
+				followers = _.pluck(v.followers, 'id');
+				v.follows = followers ? _.contains(followers, req.user.id) : false;
+			})
 			return res.view({users:found});
 		});
+	},
+
+	favorites: function(req, res){
+		var id = req.param('id');
+		User.findOne(id).populate('follows').exec(function function_name (err, found) {
+			if (err){
+				return res.serverError(err);
+			}else{
+				res.view(found);
+			}
+		})
+		//		
 	},
 
 	profile: function(req, res){

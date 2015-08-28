@@ -33,10 +33,12 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 			<div class="identity">
 				<h1 class='name'>
 					{{firstname}} {{lastname}}
+					<span id="star"></span>
 				</h1>	
 				<span class="title">
 					{{title}}
 				</span>
+
 			</div>	
 		</div>
 	</div>
@@ -82,13 +84,14 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	</div>
 </div>
 
-<div class="block-white">
+<script type="text/jsx" >
 
-	
+	React.render(
+		<Star follower="{{req.user.id}}" follows="{{id}}"/>
+		, document.getElementById('star')
+	)
 
-	
-	
-</div>
+</script>
 <script type="text/jsx">
 
   React.render(

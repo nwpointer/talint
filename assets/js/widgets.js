@@ -109,3 +109,46 @@ var Progressbar = React.createClass({
     );
   }
 });
+
+Star = React.createClass({
+	getInitialState : function(){
+		return{
+			active: typeof this.props.active === 'undefined' ? false : this.props.active
+		};
+	},
+	isActive: function(){
+		each = function (v, i) {
+			if(v.id == this.props.follows){
+				this.setState({active:true})
+			}
+		}
+		cb = function(res){
+			res.forEach(each.bind(this))
+		}
+		io.socket.get('/api/user/'+this.props.follower+"/follows", cb.bind(this));
+	},
+
+	toggle:function(){
+		route = '/api/user/'+this.props.follower+'/follows/' + this.props.follows
+		active = typeof this.props.active === 'undefined' ? this.state.active : this.props.active
+		if(active){
+			io.socket.delete(route,{}, function(res){})
+		}else{
+			io.socket.post(route,{}, function(res){})
+		}
+		if(typeof this.props.active === 'undefined'){
+			this.setState({active: !this.state.active});
+		}else{
+			this.props.onclick(this.props.follows);
+		}
+	},
+	componentWillMount: function(){
+		if(typeof this.props.active === 'undefined'){
+			this.isActive();
+		}
+	},
+	render: function(){
+		active = typeof this.props.active === 'undefined' ? this.state.active : this.props.active
+		return(<i onClick={this.toggle} className={"fa fa-2 fa-star" + (active ? "" : "-o")}></i>);
+	}
+});
