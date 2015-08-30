@@ -28,6 +28,7 @@
   <ul>
     
        <li><a href="/user">search</a></li>
+       <li><a href="user/{{req.user.id}}/loadSearches">load searches</a></li>
        <li><a href="/user/{{req.user.id}}/favorites">favorites</a></li>
        {{#equal req.session.role "admin"}}
         <li><a href="/skills">skills</a></li>

@@ -133,6 +133,22 @@
 		data = localStorage.getItem('skillTree');
 		$('.confirm').html("<i class='fa fa-check'></i>");
 
+		// get list, 
+
+		io.socket.get('/api/user/{{user.id}}',function(res){
+			saves = res.savedSearches;
+			saves.push({name:name, data:data});
+			console.log(saves);
+			io.socket.put('/api/user/{{user.id}}',{savedSearches: saves}, function(resdata,jw){
+				console.log(resdata,jw);
+			})
+		})
+
+
+		// jsonify and push to it
+
+		//send modified version back up to server
+
 		setTimeout(function(){
 			$('[data-remodal-id=modal]').remodal().close();
 		}, 800);

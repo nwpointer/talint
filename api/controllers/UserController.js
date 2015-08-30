@@ -18,6 +18,18 @@ module.exports = {
 		});
 	},
 
+	loadSearches: function(req, res){
+		var id = req.param('id');
+		User.findOne(id).exec(function function_name (err, found) {
+			if (err){
+				return res.serverError(err);
+			}else{
+				res.view(found);
+			}
+		})
+		//		
+	},
+
 	favorites: function(req, res){
 		var id = req.param('id');
 		User.findOne(id).populate('follows').exec(function function_name (err, found) {

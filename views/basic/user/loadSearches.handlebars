@@ -1,0 +1,24 @@
+<div class="block-white">
+<ul>
+{{#each savedSearches}}
+	<li>
+		<a onclick="loadSearch({{@index}})">
+			{{name}}
+		</a>
+	</li>
+{{/each}}
+</ul>
+
+<script>
+	loadSearch = function(i){
+		io.socket.get('/api/user/{{user.id}}',function(res){
+			search = res.savedSearches[i];
+			console.log(search.data);
+			localStorage.setItem('skillTree',search.data);
+			location.href ='/user'
+		});
+		
+	}
+</script>
+
+</div>

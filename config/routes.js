@@ -66,6 +66,7 @@ module.exports.routes = {
   'get /user/:id' : 'UserController.profile',
   'get /user/:id/edit' : 'UserController.edit',
   'get /user/:id/favorites' : 'UserController.favorites',
+  'get /user/:id/loadSearches' : 'UserController.loadSearches',
   'get /user/:id/bio' : 'UserController.editbio',
   'post /user/:id' : 'UserController.update',
 
