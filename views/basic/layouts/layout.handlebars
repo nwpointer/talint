@@ -9,11 +9,15 @@
     <link rel="stylesheet" type="text/css" href="/styles/css/main.css">
     <link rel="stylesheet" type="text/css" href="/styles/css/discover.css">
     <link rel="stylesheet" href="/styles/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/js/dependencies/node_modules/remodal/dist/remodal.css"></link>
+    <link rel="stylesheet" href="/js/dependencies/node_modules/remodal/dist/remodal-default-theme.css"></link>
     <script src="/js/dependencies/sails.io.js" ></script>
     <script src="/js/dependencies/form2js.js" ></script>
     <script src="/js/dependencies/jsonForm.js"></script>
     <script src="/js/dependencies/crud.js" ></script>
     <script src="/js/dependencies/node_modules/underscore/underscore-min.js" ></script>
+    <script src="/js/dependencies/node_modules/remodal/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/js/dependencies/node_modules/remodal/dist/remodal.js"></script>
 
     <script src="/js/dependencies/node_modules/react/dist/react-with-addons.js" ></script>
     <script src="/js/dependencies/node_modules/react/dist/JSXTransformer.js" ></script> 
@@ -26,6 +30,7 @@
     <script type="text/jsx" src="/js/recursiveMenu.js" ></script>
     <script type="text/jsx" src="/js/skillDisplay.js" ></script>
     <script type="text/jsx" src="/js/userTable.js" ></script>
+
     <script>
       activeUserId={{req.user.id}}
     </script>
@@ -33,22 +38,19 @@
   </head>
 
   <body>
-    
+
   <div class="container">
     <div class="clearfix">
     
     {{> links }} 
+
+
   
     {{{body}}}
     </div>
   </div>
 
-  
-  <script src="/js/dependencies/list.min.js" ></script>
-  <script src="/js/userlist.js" ></script>
-  <script src="/js/dependencies/jquery-2.1.4.min.js" ></script>
-  <script src="/js/dependencies/poshytip-1.2/src/jquery.poshytip.js" ></script>
-  <script src="/js/dependencies/jquery.xedit.min.js" ></script>
+
 
   </body>
 </html>

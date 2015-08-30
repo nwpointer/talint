@@ -1,5 +1,7 @@
 <div class="block-white">
 
+
+
 	<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
 	<br>
 	<h2>Search:</h2>
@@ -103,6 +105,42 @@
 		</table>
 	</div> --}}
 </div>
+<div class="remodal-bg">
+	<div class="remodal" data-remodal-id="modal" style="max-width: 420px;" >
+	  <button data-remodal-action="close" class="remodal-close"></button>
+	  <h1>Save search</h1>
+	  <p>
+	    this will save the filter selections you have made so you can reference them later in the saved searches tab
+	  </p>
+	  <br>
+	  <form action="">
+	  	<label for="name">save name</label><br>
+	  	<input type="text" name="name" id="name" placeholder="ie. developers, designers, network ...">
+	  	<br>
+	  	<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+	  	<button class="confirm">OK</button>
+	  </form>
+	</div>
+<div class="remodal-bg">
+
+<script>
+	$('form button').on("click",function(e){
+	    e.preventDefault;
+	});
+	$(document).on('click', '.remodal .confirm', function (e) {
+		e.preventDefault();
+		name = $(".remodal input").val();
+		data = localStorage.getItem('skillTree');
+		$('.confirm').html("<i class='fa fa-check'></i>");
+
+		setTimeout(function(){
+			$('[data-remodal-id=modal]').remodal().close();
+		}, 800);
+		setTimeout(function(){
+			$('.confirm').html("OK")
+		}, 1000);
+	});
+</script>
 
 <script type="text/jsx">
 	React.render(

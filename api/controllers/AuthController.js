@@ -180,16 +180,16 @@ var AuthController = {
 
         //if registering, auto fill user name
         //if(action == 'register'){
-          if(newInvite[0]){
-            user.firstname = newInvite[0].firstname
-            user.lastname = newInvite[0].lastname
+          // if(newInvite[0]){
+          //   user.firstname = newInvite[0].firstname
+          //   user.lastname = newInvite[0].lastname
 
-            user.save(function (err, u) {
-              if(err){
-                console.log(err);
-              }
-            })
-          }
+          //   user.save(function (err, u) {
+          //     if(err){
+          //       console.log(err);
+          //     }
+          //   })
+          // }
         //}
 
         req.login(user, function (err) {
