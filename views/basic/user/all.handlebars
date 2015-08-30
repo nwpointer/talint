@@ -136,7 +136,7 @@
 		// get list, 
 
 		io.socket.get('/api/user/{{user.id}}',function(res){
-			saves = res.savedSearches;
+			saves = res.savedSearches || [];
 			saves.push({name:name, data:data});
 			console.log(saves);
 			io.socket.put('/api/user/{{user.id}}',{savedSearches: saves}, function(resdata,jw){
