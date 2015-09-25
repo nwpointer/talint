@@ -104,9 +104,9 @@ Discover = React.createClass({
 
 		return(
 			<div className="discover">
-				<a className="suggest" onClick={this.clearSkills} >clear all</a>
+				<a className="suggest" href="#" onClick={this.clearSkills} >clear all</a>
 				<a className="suggest" href="mailto:nwpointer@gmail">suggest a skill</a>
-				<a className="suggest" data-remodal-target="modal">save search</a>
+				<a className="suggest" href="#" data-remodal-target="modal">save search</a>
 				<br />
 				<section className="edit">
 					<RecursiveMenu data={this.state.skillTree} ch={this.selectSkill} active={this.state.active} type="list" />
