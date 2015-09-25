@@ -51,6 +51,7 @@ ContentSwitch = React.createClass({
 Range = React.createClass({
 	ch: function(e){
 		v = e.target.value;
+		if(v=="on"){v= e.target.checked}
 		i = this.props.data.id
 		this.props.ch(v,i);
 	},
