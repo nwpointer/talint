@@ -5,6 +5,7 @@ var User = {
     firstname : { type: 'string' },
 	lastname  : { type: 'string' },
     title     : { type: 'string' },
+    location     : { type: 'string' },
     role      : {
         type: "string", 
         defaultsTo: "user",

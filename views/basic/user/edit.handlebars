@@ -19,6 +19,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	};
 
 	window.storeSkillProfile = function(userId){
+		document.getElementById('linkdin').value = document.getElementById('linkdin').value.split('/').pop();
 		io.socket.put('/api/user/'+userId, {fake: "fake=" + JSON.stringify(window.skillTree) }, function(res){console.log(res)})
 		window.location = '/user/'+userId;
 	}
@@ -38,7 +39,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 							<input class="field" placeholder="last name" type="text" name="lastname" value="{{lastname}}">
 						</h1>	
 						<span class="title">
-							<input type="text" placeholder="title" value="{{title}}">
+							<input type="text" name="title" placeholder="title" value="{{title}}">
 						</span>
 					</div>	
 				</div>
@@ -50,9 +51,6 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 				onclick="storeSkillProfile({{id}})">
 				<a class="button green md"  href="/user/{{id}}">cancel changes</a>
 			</aside>
-		</div>
-		<div class="clearfix" style="overflow:auto; padding: 1.5rem 3.38983%;">
-			<div id="discover"></div>
 		</div>
 		<div class="clearfix bd-top bio" style="overflow:auto; padding: 1.5rem 3.38983%;">
 			<div class="grid-6">
@@ -66,7 +64,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 				</div>
 				<div class="grid-6">
 					<h4>linkdin</h4>
-					<input class="field" type="text" name="linkdin" value="{{linkdin}}">
+					<input class="field" id="linkdin" type="text" name="linkdin" value="{{linkdin}}">
 					
 				</div>
 				<div class="grid-6">
@@ -74,12 +72,19 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 					<input class="field" type="range" name="availability" min="0" max="5" value="{{availability}}">
 
 				</div>
+					<div class="grid-6">
+					<h4>location</h4>
+					<input class="field" type="text" name="location" value="{{location}}">
+				</div>
 			</div>
 			<div class="grid-6">
 				<h4>Bio</h4>
 				<textarea class="field" name="biography" id="biography" style="width:100%" rows="10">{{biography}}</textarea>
 				<small>(limmited to 260 character)</small>
 			</div>
+		</div>
+		<div class="clearfix" style="overflow:auto; padding: 1.5rem 3.38983%;">
+			<div id="discover"></div>
 		</div>
 	</form>
 </div>
@@ -114,7 +119,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 
 <script type="text/jsx">
 	React.render(
-		<Discover />,
+		<Discover noStore="true" />,
 		document.getElementById('discover')
 	);
 </script>

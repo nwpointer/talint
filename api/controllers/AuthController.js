@@ -94,6 +94,16 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
+    //return res.send("asfasdf");
+    // return res.view({
+    //   errors: req.flash('error'),
+    //   code: 'asdfd',
+    //   invite: 'asdfsdf',
+    //   username: 'asfdasdf'
+    // });
+
+
+
     var code = req.params.code;
     Invites.findOne({code:code}).exec(function (err, found){
       if(found){

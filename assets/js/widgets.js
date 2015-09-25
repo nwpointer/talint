@@ -64,17 +64,20 @@ Range = React.createClass({
 	},
 	render: function(){
 		data = this.props.data
+		if(data.max == 1){
+			return (<div><input type="checkbox" onChange={this.ch} /></div>)
+		}
 		return(
 			<div className="input">
 
 				<input 
-					type="range" value={data.rank || 0}
-					max={data.max || 10} min={data.min || 0} 
+					type="range" value={data.rank || 1}
+					max={data.max || 10} min={data.min || 1} 
 					onChange={this.ch}
 				/>
 				<div className="labels">
 				<span onClick={this.down}  className="from">-</span>
-				<span className="value">{data.rank || 0} {data.unit}</span>
+				<span className="value">{data.rank || 1} {data.unit}</span>
 				<span onClick={this.up} className="to">+</span>
 
 				</div>
