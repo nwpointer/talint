@@ -1,0 +1,48 @@
+<div class="block-white">
+	<a href="/invites">back</a><br><br>
+	<form action="invites:update:{{id}}" id="updateInvites">
+		
+
+		<label for="firstname">firstname</label> 
+		<input class="field block"type="text" name="firstname" value="{{firstname}}">
+
+		<label for="lastname">lastname</label> 
+		<input class="field block"type="text" name="lastname" value="{{lastname}}">
+
+		<label for="email">email</label> 
+		<input class="field block"type="text" name="email" value="{{email}}">
+
+		<br>
+
+		<label for="status">status</label>: <br>
+		{{status}} <br><br>
+
+		<input class="btn btn-primary" type="submit" value="save">
+	</form>
+	<hr>
+
+	<button class="btn btn-primary bg-green" onclick="sendInvite({{id}})">send</button>
+	<button class="btn btn-primary bg-yellow" onclick="cancelInvite({{id}});">cancel</button>
+
+
+
+
+	<script>
+		updateInvites = new jsonForm("updateInvites", function(data){
+			var Invites = new crud("invites");
+			Invites.update({{id}}, data);
+		});
+
+		sendInvite = function(id){
+			window.location.href = "/invites/" + id + "/send";
+		}
+
+		cancelInvite = function(id){
+			window.location.href = "/invites/" + id + "/cancel";
+		}
+	</script>
+
+
+
+
+</div>

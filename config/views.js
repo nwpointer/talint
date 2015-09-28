@@ -11,7 +11,7 @@
  * http://sailsjs.org/#!/documentation/concepts/Views
  */
 
-theme = 'basic';
+theme = 'semantic';
 // theme information is here, in .sailsrc and the handlebars helpers
 
 module.exports.views = {

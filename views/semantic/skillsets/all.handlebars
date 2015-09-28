@@ -1,0 +1,51 @@
+<div class="block-white">
+	<h1>Skillsets:</h1>
+
+	{{!-- <form action="skillsets:create" id="addSkillsets">
+		<label for="name">name</label>
+		<input type="text" name="name" id="name" value="{{name}}">
+		<input type="submit">
+	</form> --}}
+
+	<script>
+		// addSkillset = new jsonForm("addSkillsets", function(data){
+		// 	var Skillsets = new crud("skillsets");
+		// 	Skillsets.create(data);
+		// });
+	</script>
+
+	<br>
+
+
+	<div id="skillsets">
+		{{!-- <input type="text" class="search" placeholder="search"> --}}
+		<table border="1">
+			<thead>
+				<tr>
+					<th {{!-- class="sort" --}} data-sort="name">name</th>
+					<th>user</th>
+					<th>skills</th>
+				</tr>
+			</thead>
+			<tbody {{!-- class="list" --}}>
+				{{#each skillsets}}
+				 <tr>
+				 	<td class="name">
+				 		<a href="/skillsets/{{id}}">{{id}}</a>
+				 	</td>
+				 	<td class="user">
+				 		<a href="/user/{{user.id}}">{{user.id}}</a>
+				 	</td>
+				 	<td class="skills" >
+				 		<ul>
+				 			{{#each skills }}
+								<li>{{name}}</li>
+				 			{{/each}}
+				 		</ul>
+				 	</td>
+				 </tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+</div>

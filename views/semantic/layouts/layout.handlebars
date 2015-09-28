@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>semantic</title>
+    <script src="/js/dependencies/node_modules/jquery/dist/jquery.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="/semantic/dist/components/dropdown.css">
+    <!--  <link rel="stylesheet" href="/styles/css/talint.css"> -->
+    <script src="/semantic/dist/semantic.min.js"></script>
+    <script src="/semantic/dist/components/dropdown.js"></script>
+
+    <script src="/js/dependencies/sails.io.js" ></script>
+    <script src="/js/dependencies/jsonForm.js"></script>
+    <script src="/js/dependencies/crud.js" ></script>
+    <script src="/js/dependencies/node_modules/underscore/underscore-min.js" ></script>
+    <script src="/js/dependencies/node_modules/remodal/dist/remodal.js"></script>
+
+    <script src="/js/dependencies/node_modules/react/dist/react-with-addons.js" ></script>
+    <script src="/js/dependencies/node_modules/react/dist/JSXTransformer.js" ></script> 
+    <script src="/js/dependencies/reactable.js" ></script>
+
+    <script src="/js/skillDiff.js"></script>
+    <script src="/js/util.js"></script>
+    <script type="text/jsx" src="/js/widgets.js" ></script>
+    <script type="text/jsx" src="/js/discover.js" ></script>
+    <script type="text/jsx" src="/js/recursiveMenu.js" ></script>
+    <script type="text/jsx" src="/js/skillDisplay.js" ></script>
+    <script type="text/jsx" src="/js/userTable.js" ></script>
+
+    <script>
+      activeUserId={{req.user.id}}
+    </script>
+
+    <link rel="stylesheet" href="/styles/css/login.css">
+
+</head>
+
+<body>
+<div class="ui container segments">
+  <div class="ui segment head">
+     <div class="ui grid">
+        <div class="one column row">
+            <div class="left floated column">
+                <div class="logo">
+                    <a href="/user/">
+                      <h1 class="name inline">TalInt</h1>
+                    </a>
+                    <span class="slogan computer only">
+                        discover true potential
+                    </span>     
+                </div>
+
+                <div class="ui text menu">
+                  <div class="ui right dropdown item">
+                    <img class="ui avatar image" src="https://richardwiseman.files.wordpress.com/2012/09/50417f7a-04e7-4d8a-ba82-cc2023c7b15e.jpeg">
+                   {{req.user.firstname}} {{req.user.lastname}}
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item">
+                        <a href="/user/{{req.user.id}}">
+                          profile
+                        </a>
+                      </div>
+                      <div class="item">
+                        <a href="/logout">
+                          logout
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="right floated column">
+                <div class="ui tabular menu main-menu">
+                  <a class="item active">
+                    search
+                  </a>
+                  <a class="item">
+                    favorites
+                  </a>
+                  <a class="item">
+                    skills
+                  </a>
+                  <a class="item">
+                    invites
+                  </a>
+                </div>
+            </div>
+     </div>
+     </div>
+
+  </div>
+  <div class="ui segment">
+    <div class="ui grid">
+      {{{body}}}
+    </div>
+  </div>
+  
+</div>
+<script>
+    $('.ui.dropdown').dropdown();
+</script>
+</body>
+        
+</html>

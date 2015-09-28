@@ -1,0 +1,53 @@
+<div class="block-white">
+	<h1>skills:</h1>
+
+	<form action="skills:create" id="addSkills">
+		<label for="name">name</label>
+		<input class="field" type="text" name="name" id="name" value="{{name}}">
+
+		<label for="quantifier">type</label>
+		<select class="field" name="quantifier" id="quantifier">
+			{{#each quantifier_options}}
+				<option value="{{this}}">
+					{{this}}
+				</option>
+			{{/each}}
+		</select>
+		<input class="btn btn-primary"type="submit">
+	</form>
+
+	<script>
+		addSkills = new jsonForm("addSkills", function(data){
+			var Skills = new crud("skills");
+			Skills.create(data);
+		});
+	</script>
+
+	<br>
+
+	<div id="skills">
+		{{!-- <input type="text" class="search" placeholder="search"> --}}
+		<table border="1">
+			<thead>
+				<tr>
+					<th {{!-- class="sort" --}} data-sort="name">name</th>
+					<th {{!-- class="sort" --}} data-sort="quantifier">quantifier</th>
+				</tr>
+			</thead>
+			<tbody {{!-- class="list" --}}>
+				{{#each skills}}
+				 <tr>
+				 	<td class="name">
+				 		<a href="/skills/{{id}}">{{name}}</a>
+				 	</td>
+				 	<td>
+				 		{{quantifier}}
+				 	</td>
+				 </tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+
+
+</div>

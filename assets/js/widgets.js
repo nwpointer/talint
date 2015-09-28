@@ -48,6 +48,28 @@ ContentSwitch = React.createClass({
 	}
 })
 
+SemanticContentSwitch = React.createClass({
+	//key based content(children) switch
+	render: function(){
+		var content;
+		var active = this.props.active;
+		if(this.props.children){
+			this.props.children.forEach(function(v,i){
+				if(v.key === active) content = v;
+			})
+		}
+		return(
+			<section className={ this.props.className + " switch"}>
+				<div class="paddless twelve wide stretched column">
+				  <div class="right-round ui basic green inverted segment">
+					<div className="container">{content}</div>
+				  </div>
+				</div>
+			</section>
+		)
+	}
+})
+
 Range = React.createClass({
 	ch: function(e){
 		v = e.target.value;

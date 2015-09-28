@@ -1,0 +1,37 @@
+<div class="login">
+	<div class="logo">
+		<h1 class="name">TalInt</h1>
+		<span class="slogan">
+			discover true potential
+		</span>
+		<p>
+			welcome! 
+			{{errors}}
+		</p>
+	</div>
+	{{!-- <form  role="form" action="/auth/local/register" method="post">
+	  <input type="text" name="username" placeholder="Username" value="testuser">
+	  <input type="text" name="email" placeholder="Email" value="testuser@gmail.com">
+	  <label for="password">password</label>
+	  <input type="password" name="password" placeholder="Password" value="RNs1120!!">
+	  <button class="button" type="submit">Sign up</button> 
+	</form> --}}
+
+	<form class="form-inline" role="form" action="/auth/local/register/{{code}}" method="post">
+	{{!-- <label for="username">username</label> --}}
+	  <input type="hidden" name="username" value="{{username}}">
+	  <label for="email">email</label>
+	  <input type="text" name="email" placeholder="Email" 
+	  value="{{invite.email}}"">
+	  <label for="password">password</label>
+	  <input autofocus type="password" name="password" placeholder="Password" >
+	  <small class="grey">(password must be at least 8 characters long)</small>
+	  <button class="button" type="submit">Sign up</button>
+	</form>
+
+	{{#each providers}}
+	  <a href="/auth/{{slug}}" role="button">{{name}}</a>
+	{{/each}}
+
+
+</div>

@@ -1,0 +1,120 @@
+<script>
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+window.skillTree=(eval(decodeHtml("{{fake}}")));
+</script>
+<script>
+	window.userSkills = {
+		1:{
+			0:{name:"math", rank:3, unit: "/10"},
+			1:{name:"html5", rank:5, unit: "/10"}
+		},
+		2:{
+			0:{name:"math", rank:5, unit: "/10"},
+			1:{name:"html5", rank:9, unit: "/10"}
+		}
+	};
+
+	window.storeSkillProfile = function(userId){
+		io.socket.put('/api/user/'+userId, {fake: "fake=" + JSON.stringify(window.skillTree) }, function(res){console.log(res)})
+		window.location = '/user/'+userId;
+	}
+</script>
+
+
+<div class="block-white" style="padding:0">
+	<form action="/api/user/{{id}}" method="POST">
+		<div class="clearfix" style="overflow:auto; padding: 1.5rem 3.38983%;">
+			<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
+			<div class="grid-8">
+				<div class="persona">
+					<img class="face" src="/images/user.png" height="38" width="41" alt="">					
+					<div class="identity">
+						<h1 class='name'>
+							<input class="field" placeholder="first name" type="text" name="firstname" value="{{firstname}}">
+							<input class="field" placeholder="last name" type="text" name="lastname" value="{{lastname}}">
+						</h1>	
+						<span class="title">
+							<input type="text" placeholder="title" value="{{title}}">
+						</span>
+					</div>	
+				</div>
+			</div>
+			<aside class="grid-4 right">
+			<br><br>
+				{{!-- <a class="button green md" style="position: relative;left: .8rem;" href="/user/{{id}}/edit">save profile</a> --}}
+				<input class="button green md" type="submit" value="save profile" style="position: relative;left: .8rem;" 
+				onclick="storeSkillProfile({{id}})">
+				<a class="button green md"  href="/user/{{id}}">cancel changes</a>
+			</aside>
+		</div>
+		<div class="clearfix" style="overflow:auto; padding: 1.5rem 3.38983%;">
+			<div id="discover"></div>
+		</div>
+		<div class="clearfix bd-top bio" style="overflow:auto; padding: 1.5rem 3.38983%;">
+			<div class="grid-6">
+				<div class="grid-6">
+					<h4>email</h4>
+					<input class="field" type="text" name="email" value="{{email}}">
+				</div>
+				<div class="grid-6">
+					<h4>phone</h4>
+					<input class="field" type="num" name="phone" value="{{phone}}">
+				</div>
+				<div class="grid-6">
+					<h4>linkdin</h4>
+					<input class="field" type="text" name="linkdin" value="{{linkdin}}">
+					
+				</div>
+				<div class="grid-6">
+					<h4>availability</h4>
+					<input class="field" type="range" name="availability" min="0" max="5" value="{{availability}}">
+
+				</div>
+			</div>
+			<div class="grid-6">
+				<h4>Bio</h4>
+				<textarea class="field" name="biography" id="biography" style="width:100%" rows="10">{{biography}}</textarea>
+				<small>(limmited to 260 character)</small>
+			</div>
+		</div>
+	</form>
+</div>
+
+{{!-- <div class="block-white bd-top bio">
+	<div class="grid-6">
+		<div class="grid-6">
+			<h4>email</h4>
+			<input class="field" type="text" name="email" value="{{email}}">
+		</div>
+		<div class="grid-6">
+			<h4>phone</h4>
+			<input class="field" type="num" name="phone" value="{{phone}}">
+		</div>
+		<div class="grid-6">
+			<h4>linkdin</h4>
+			<input class="field" type="text" name="linkdin" value="{{linkdin}}">
+			
+		</div>
+		<div class="grid-6">
+			<h4>availability</h4>
+			<input class="field" type="range" name="availability" min="0" max="5" value="{{availability}}">
+
+		</div>
+	</div>
+	<div class="grid-6">
+		<h4>Bio</h4>
+		<textarea class="field" name="biography" id="biography" style="width:100%" rows="10">{{biography}}</textarea>
+		<small>(limmited to 260 character)</small>
+	</div>
+</div> --}}
+
+<script type="text/jsx">
+	React.render(
+		<Discover />,
+		document.getElementById('discover')
+	);
+</script>

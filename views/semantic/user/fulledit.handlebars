@@ -1,0 +1,94 @@
+<script>
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+window.skillTree=(eval(decodeHtml("{{fake}}")));
+</script>
+<script>
+	window.userSkills = {
+		1:{
+			0:{name:"math", rank:3, unit: "/10"},
+			1:{name:"html5", rank:5, unit: "/10"}
+		},
+		2:{
+			0:{name:"math", rank:5, unit: "/10"},
+			1:{name:"html5", rank:9, unit: "/10"}
+		}
+	};
+
+	window.storeSkillProfile = function(userId){
+		io.socket.put('/api/user/'+userId, {fake: "fake=" + JSON.stringify(window.skillTree) }, function(res){console.log(res)})
+		window.location = '/user/'+userId;
+	}
+</script>
+
+<div class="block-white">
+	<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
+	<div class="grid-8">
+		<div class="persona">
+			<img class="face" src="/images/user.png" height="38" width="41" alt="">					
+			<div class="identity">
+				<h1 class='name'>
+					{{firstname}} {{lastname}}
+				</h1>	
+				<span class="title">
+					{{title}}
+				</span>
+			</div>	
+		</div>
+	</div>
+	<aside class="grid-4 right">
+	<br><br>
+	{{#unless owns}}
+		{{!-- <a href="#" class="button green md">request profile update</a> --}}
+		{{/unless}}
+	</aside>
+</div>
+<div class="block-white">
+	<div id="discover"></div>
+
+	<br>
+	<a class="button" onclick="storeSkillProfile({{id}})">save skills</a>
+`
+</div>
+<div class="block-white bd-top">
+	<div class="grid-6">
+		<div class="grid-6">
+			<h4>email</h4>
+			<p>{{email}}</p>
+		</div>
+		<div class="grid-6">
+			<h4>phone</h4>
+			<p>9712070341</p>
+		</div>
+		<div class="grid-6">
+			<h4>availability</h4>
+			<p>{{availability}} / 5</p>
+
+		</div>
+	</div>
+	<div class="grid-6">
+		<h4>Bio</h4>
+		<p>{{biography}}</p>
+	</div>
+</div>
+
+<div class="block-white">
+
+	
+
+	{{#if owns}}
+		<a href="/user/{{id}}/edit">edit</a>
+	{{/if}}
+
+	
+	
+</div>
+<script type="text/jsx">
+	React.render(
+		<Discover />,
+		document.getElementById('discover')
+	);
+</script>

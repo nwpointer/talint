@@ -1,0 +1,101 @@
+<script>
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
+window.skillTree=(eval(decodeHtml("{{fake}}")));
+// window.skillTree = {
+// 	skills:[
+// 		{id:10, type: "skill", name:"math", rank:10, unit: "/10", min:0, max:10},
+// 			{id:1, type: "skill", name:"html5", rank:5, unit: "/10", min:0, max:10},
+// 			{id:9, type: "skill", name:"knitting", rank:5, unit: "/10", min:0, max:10}
+// 	],
+// 	edu:{
+// 		bla: {
+// 			insude:[
+// 				{id:2, type: "skill", name:"masters", rank:1, unit: "yr.", min:0, max:10}
+// 			]
+// 		},
+// 		blat: [
+// 			{id:3, type: "skill", name:"masterz", rank:1, unit: "yr.", min:0, max:10},
+// 			{id:4, type: "skill", name:"masterz2", rank:1, unit: "yr.", min:0, max:10}
+// 		]
+// 	}
+// };
+</script>
+
+<div class="block-white">
+	<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
+	<div class="grid-8">
+		<div class="persona">
+			<img class="face" src="/images/user.png" height="38" width="41" alt="">					
+			<div class="identity">
+				<h1 class='name'>
+					{{firstname}} {{lastname}}
+					<span id="star"></span>
+				</h1>	
+				<span class="title">
+					{{title}}
+				</span>
+
+			</div>	
+		</div>
+	</div>
+	<aside class="grid-4 right">
+	<br><br>
+	{{#if owns}}
+		<a class="button green md" style="position: relative;left: .8rem;" href="/user/{{id}}/edit">edit profile</a>
+	{{/if}}
+	</aside>
+</div>
+<div class="block-white">
+	<div id="discoverViewOnly"></div>
+
+	<br>
+</div>
+<div class="block-white bd-top bio">
+	<div class="grid-6">
+		<div class="grid-6">
+			<h4>email</h4>
+			<p>{{email}}</p>
+		</div>
+		<div class="grid-6">
+			<h4>phone</h4>
+			<p>{{phone}}</p>
+		</div>
+		<div class="grid-6">
+			<h4>linkdin</h4>
+			{{#if linkdin}}
+				<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+				<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/{{linkdin}}" data-format="hover" data-text="quick view"></script>
+			{{/if}}
+			
+		</div>
+		<div class="grid-6">
+			<h4>availability</h4>
+			<p>{{availability}} / 5</p>
+
+		</div>
+	</div>
+	<div class="grid-6">
+		<h4>Bio</h4>
+		<p>{{biography}}</p>
+	</div>
+</div>
+
+<script type="text/jsx" >
+
+	React.render(
+		<Star follower="{{req.user.id}}" follows="{{id}}"/>
+		, document.getElementById('star')
+	)
+
+</script>
+<script type="text/jsx">
+
+  React.render(
+  	<SkillDisplay data={window.skillTree} headers={true} />,
+  	document.getElementById('discoverViewOnly')
+  );
+</script>

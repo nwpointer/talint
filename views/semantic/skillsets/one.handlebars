@@ -1,0 +1,43 @@
+<div class="block-white">
+	
+	<a href="/skillsets">back</a>
+
+	<h1>skillset: {{name}}</h1>
+
+	<form action="skillsets:add" id="addSkillsets">
+		<label for="name">name</label>
+		<select class="field" name="skill" id="skill">
+			{{#each skillLibrary }}
+				<option value="{{id}}">{{name}}</option>
+			{{/each}}
+		</select>
+		<input class="btn btn-primary" type="submit" value="add">
+	</form>
+
+	<script>
+		addSkillset = new jsonForm("addSkillsets", function(data){
+			url = '/api/skillsets/{{id}}/skills/' + data.skill;
+			console.log(url);
+			io.socket.post(url, function(body, res){
+				location.reload();
+			});
+		});
+
+		deleteSkillFromSet = function(id){
+			url = '/api/skillsets/{{id}}/skills/' + id;
+			io.socket.delete(url, function(body, res){
+				location.reload();
+			})
+		}
+	</script>
+	<hr>
+	includes:
+	<ul>
+	{{#each skills}}
+		<li>
+			<a href="/skills/{{id}}">{{name}}</a> 
+			<a href="#" class="delete" onclick="deleteSkillFromSet({{id}}); return false;"> delete </a>
+		</li>
+	{{/each}}
+	</ul>
+</div>

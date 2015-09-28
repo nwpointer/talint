@@ -1,0 +1,40 @@
+
+<header>
+  <div class="logo inline">
+    <h1 class="name">TalInt</h1>
+    <span class="slogan">
+      discover true potential
+    </span>
+  </div>
+  <div class="persona sm">
+    <a href="/user/{{req.user.id}}">
+      <span class="identity">{{req.user.firstname}} {{req.user.lastname}} </span>
+      <img class="face" src="/images/user.png" height="38" width="41" alt="">
+      <nav id="account">
+        <ul>
+          {{#if req.session.authenticated}}
+            <li><a href="/user/{{req.user.id}}">profile</a></li>
+            <li><a href="/logout">logout</a></li>
+          {{else}}
+            <li><a href="/login">login</a></li>
+            <li><a href="/register">signup</a></li>
+          {{/if}}
+        </ul>
+      </nav>       
+    </a>
+  </div>
+</header>
+<nav class="tabs">
+  <ul>
+    
+       <li><a href="/user">search</a></li>
+       <li><a href="user/{{req.user.id}}/loadSearches">load searches</a></li>
+       <li><a href="/user/{{req.user.id}}/favorites">favorites</a></li>
+       {{#equal req.session.role "admin"}}
+        <li><a href="/skills">skills</a></li>
+        <li><a href="/invites">invites</a></li>
+       {{/equal}}
+
+  </ul>
+</nav>
+

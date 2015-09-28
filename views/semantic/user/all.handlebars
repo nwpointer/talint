@@ -1,0 +1,204 @@
+
+	
+	<h2>Search:</h2>
+
+	
+	  <div class="green-fill paddless four wide column">
+	    <div class="ui vertical fluid tabular menu">
+	      <a class="item">
+	        Bio
+	      </a>
+	      <a class="item">
+	        Pics
+	      </a>
+	      <a class="item">
+	        Companies
+	      </a>
+	      <a class="item green-inverted active">
+	        Links
+	      </a>
+	    </div>
+	  </div>
+	  <div class="paddless twelve wide stretched column">
+	    <div class="right-round ui basic green inverted segment">
+	      This is an stretched grid column. This segment will always match the tab height
+	    </div>
+	  </div>
+	
+
+	<style>
+	.progressbar-container{
+		background: #e2e2e2;
+		border-radius: 100px;
+		overflow: hidden;
+	}
+	.reactable-th-match{
+		width: 100px;
+	}
+	.bad-match, .bad-match a{
+		color:#B5B5B5;
+	}
+	h2{
+		display: inline-block;
+		width: 100%;
+	}
+	.paddless{
+		padding: 0px !important
+	}
+	a.active.green-inverted{
+		background: #85C160 !important;
+		color: white !important;
+		border: 0px !important;
+	}
+	.right-round{
+		border-radius: 0 .28571429rem .28571429rem 0 !important;
+	}
+	</style>
+
+	<script>
+
+		window.userSkills = {};
+
+		window.useLocalStorage = true;
+
+		function decodeHtml(html) {
+		    var txt = document.createElement("textarea");
+		    txt.innerHTML = html;
+		    return txt.value;
+		}
+
+		Users = [];
+
+		{{#each users}}
+			Users.push({
+				name: "{{firstname}} {{lastname}}",
+				id: "{{id}}",
+				email: "{{email}}",
+				location: "{{location}}",
+				availability: "{{availability}}",
+				match: 100,
+				follows:{{follows}}
+				//skills: arrayToMapObj(leaves(eval(decodeHtml("{{fake}}"))))
+			});
+			userSkills[{{id}}] = arrayToMapObj(leaves(eval(decodeHtml("{{fake}}"))));
+		{{/each}}
+		
+		
+	</script>
+	<script src="/js/skillTree.js" ></script>
+
+	<br>
+	<div id="discover"></div>
+	asdfasdf
+
+	<div id="userTable"></div>
+
+	{{!-- <div id="users">
+		<table border="1">
+			<thead>
+				<tr>
+					<th class="sort" data-sort="name">name</th>
+					<th class="sort" data-sort="email">email</th>
+					<th class="sort" data-sort="location">location</th>
+					<th class="sort" data-sort="availability">availability</th>
+					<th class="sort" data-sort="match">
+						match
+					</th>
+				</tr>
+			</thead>
+			<tbody class="list">
+				{{#each users}}
+					 <tr id="{{id}}">
+					 	<td class="name">
+					 		<a href="user/{{id}}">{{firstname}} {{lastname}}</a>
+					 		<script>		
+					 			userSkills[{{id}}] = arrayToMapObj(leaves(eval(decodeHtml("{{fake}}"))));
+					 		</script>
+					 	</td>
+					 	<td class="email">
+					 		<a href="user/{{id}}">{{email}}</a>
+					 	</td>
+					 	<td class="location">
+					 		{{#if location}}
+					 			{{location}}
+					 		{{else}}
+					 			
+					 		{{/if}}
+					 	</td>
+					 	<td class="availability"> 
+					 		{{#if availability}}
+					 			{{availability}}/5
+					 		{{else}}
+					 			
+					 		{{/if}}
+					 	</td>
+					 	<td class="match">
+							<span>100</span>
+					 	</td>
+					 </tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div> --}}
+</div>
+<div class="remodal-bg">
+	<div class="remodal" data-remodal-id="modal" style="max-width: 420px;" >
+	  <button data-remodal-action="close" class="remodal-close"></button>
+	  <h1>Save search</h1>
+	  <p>
+	    this will save the filter selections you have made so you can reference them later in the saved searches tab
+	  </p>
+	  <br>
+	  <form action="">
+	  	<label for="name">save name</label><br>
+	  	<input type="text" name="name" id="name" placeholder="ie. developers, designers, network ...">
+	  	<br>
+	  	<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+	  	<button class="confirm">OK</button>
+	  </form>
+	</div>
+<div class="remodal-bg">
+
+<script>
+	$('form button').on("click",function(e){
+	    e.preventDefault;
+	});
+	$(document).on('click', '.remodal .confirm', function (e) {
+		e.preventDefault();
+		name = $(".remodal input").val();
+		data = localStorage.getItem('skillTree');
+		$('.confirm').html("<i class='fa fa-check'></i>");
+
+		// get list, 
+
+		io.socket.get('/api/user/{{user.id}}',function(res){
+			saves = res.savedSearches || [];
+			saves.push({name:name, data:data});
+			console.log(saves);
+			io.socket.put('/api/user/{{user.id}}',{savedSearches: saves}, function(resdata,jw){
+				console.log(resdata,jw);
+			})
+		})
+
+
+		// jsonify and push to it
+
+		//send modified version back up to server
+
+		setTimeout(function(){
+			$('[data-remodal-id=modal]').remodal().close();
+		}, 800);
+		setTimeout(function(){
+			$('.confirm').html("OK")
+		}, 1000);
+	});
+</script>
+
+<script type="text/jsx">
+	React.render(
+	  <Discover users={Users}>
+	  	
+	  </Discover>,
+	  document.getElementById('discover')
+	);
+</script>
