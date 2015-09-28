@@ -19,7 +19,19 @@
 .bio p{
 	min-height: 1.5rem;
 }
-#discover{
+
+.persona img{
+	display:inline-block;
+}
+
+.persona .identity{
+	display: inline-block;
+    position: relative;
+    top: -.75rem;
+    left: 1rem;
+}
+
+#discover, #discoverViewOnly{
 	width:100%;
 }
 .discover{

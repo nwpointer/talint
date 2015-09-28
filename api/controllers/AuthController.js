@@ -50,7 +50,7 @@ var AuthController = {
     res.view({
       providers : providers, 
       errors    : req.flash('error'),
-      layout: '../../views/basic/layouts/blank'
+      layout: '../../views/semantic/layouts/blank'
 
     });
   },

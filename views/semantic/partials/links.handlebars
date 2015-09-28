@@ -1,40 +1,52 @@
 
-<header>
-  <div class="logo inline">
-    <h1 class="name">TalInt</h1>
-    <span class="slogan">
-      discover true potential
-    </span>
-  </div>
-  <div class="persona sm">
-    <a href="/user/{{req.user.id}}">
-      <span class="identity">{{req.user.firstname}} {{req.user.lastname}} </span>
-      <img class="face" src="/images/user.png" height="38" width="41" alt="">
-      <nav id="account">
-        <ul>
-          {{#if req.session.authenticated}}
-            <li><a href="/user/{{req.user.id}}">profile</a></li>
-            <li><a href="/logout">logout</a></li>
-          {{else}}
-            <li><a href="/login">login</a></li>
-            <li><a href="/register">signup</a></li>
-          {{/if}}
-        </ul>
-      </nav>       
-    </a>
-  </div>
-</header>
-<nav class="tabs">
-  <ul>
-    
-       <li><a href="/user">search</a></li>
-       <li><a href="user/{{req.user.id}}/loadSearches">load searches</a></li>
-       <li><a href="/user/{{req.user.id}}/favorites">favorites</a></li>
-       {{#equal req.session.role "admin"}}
-        <li><a href="/skills">skills</a></li>
-        <li><a href="/invites">invites</a></li>
-       {{/equal}}
+<div class="ui segment head">
+     <div class="ui grid">
+        <div class="one column row">
+            <div class="left floated column">
+                <div class="logo">
+                    <a href="/user/">
+                      <h1 class="name inline">TalInt</h1>
+                    </a>
+                    <span class="slogan computer only">
+                        discover true potential
+                    </span>     
+                </div>
 
-  </ul>
-</nav>
+                <div class="ui text menu">
+                  <div class="ui right dropdown item">
+                    <img class="ui avatar image" src="https://richardwiseman.files.wordpress.com/2012/09/50417f7a-04e7-4d8a-ba82-cc2023c7b15e.jpeg">
+                   {{req.user.firstname}} {{req.user.lastname}}
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="item">
+                        <a href="/user/{{req.user.id}}">
+                          profile
+                        </a>
+                      </div>
+                      <div class="item">
+                        <a href="/logout">
+                          logout
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="right floated column">
+                <div class="ui tabular menu main-menu">
+                  <a class="item active" href="/user">search</a>
+                  {{!-- <a class="item" href="/user/{{req.user.id}}/loadSearches">load searches</a> --}}
+                  <a class="item" href="/user/{{req.user.id}}/favorites">favorites</a>
+                  {{#equal req.session.role "admin"}}
+                   <a class="item" href="/skills">skills</a>
+                   <a class="item" href="/invites">invites</a>
+                  {{/equal}}
+                </div>
+
+
+            </div>
+     </div>
+     </div>
+
+  </div>
 

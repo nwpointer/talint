@@ -14,6 +14,9 @@ Menu = React.createClass({
 				case "select": return(
 					<option value={i}>{v.name}</option>
 				); break;
+				case "dropdown": return(
+					<div class="item">{v.name}</div>
+				); break;
 			}
 		});
 
@@ -24,8 +27,15 @@ Menu = React.createClass({
 		props = this.props
 		type = this.props.type || "select"
 		switch(type){
-			case "list"  : return(<ul className="list" children={this.children()} />); break;
-			case "select": return(<select defaultValue={props.value} onChange={this.ch} children={this.children()} />); break;
+			case "list"  :   return(<ul className="list" children={this.children()} />); break;
+			case "select":   return(<select defaultValue={props.value} onChange={this.ch} children={this.children()} />); break;
+			case "dropdown": return(
+				<div class="ui floating dropdown labeled search icon button">
+  		    		<i class="world icon"></i>
+  		    		<span class="text">Select Language</span>
+  		    		<div class="menu" defaultValue={props.value} onChange={this.ch} children={this.children()} />
+  		    	</div>
+  		    ); break;
 		}	
 	}
 })
