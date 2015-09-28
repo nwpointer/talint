@@ -49,12 +49,8 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	{{/if}}
 	</aside>
 </div>
-<div class="block-white">
-	<div id="discoverViewOnly"></div>
 
-	<br>
-</div>
-<div class="block-white bd-top bio">
+<div class="block-white bio">
 	<div class="grid-6">
 		<div class="grid-6">
 			<h4>email</h4>
@@ -77,13 +73,22 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 			<p>{{availability}} / 5</p>
 
 		</div>
+		<div class="grid-6">
+			<h4>location</h4>
+			<p>{{location}}</p>
+
+		</div>
 	</div>
 	<div class="grid-6">
 		<h4>Bio</h4>
 		<p>{{biography}}</p>
 	</div>
 </div>
+<div class="block-white bd-top">
+	<div id="discoverViewOnly"></div>
 
+	<br>
+</div>
 <script type="text/jsx" >
 
 	React.render(
