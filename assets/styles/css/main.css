@@ -95,6 +95,9 @@ p {
 .bio p {
   min-height: 1.5rem; }
 
+#discover {
+  width: 100%; }
+
 .discover {
   position: relative; }
   .discover .suggest {
@@ -185,7 +188,7 @@ p {
     cursor: pointer;
     white-space: nowrap;
     position: relative;
-    top: .45rem;
+    top: .8rem;
     display: inline-block;
     overflow: hidden;
     max-width: 12rem; }
@@ -232,9 +235,6 @@ table, th, td {
 
 table {
   width: 100%;
-  float: left;
-  margin-left: 0;
-  margin-right: 0;
   border-collapse: collapse;
   text-align: left;
   font-size: 90%; }

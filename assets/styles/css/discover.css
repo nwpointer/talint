@@ -14,6 +14,9 @@
 .bio p {
   min-height: 1.5rem; }
 
+#discover {
+  width: 100%; }
+
 .discover {
   position: relative; }
   .discover .suggest {
@@ -104,7 +107,7 @@
     cursor: pointer;
     white-space: nowrap;
     position: relative;
-    top: .45rem;
+    top: .8rem;
     display: inline-block;
     overflow: hidden;
     max-width: 12rem; }

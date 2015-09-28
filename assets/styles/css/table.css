@@ -1,0 +1,23 @@
+table, th, td {
+  border: 1px solid #EBEBEB; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 90%; }
+  table th {
+    margin: 0px !important;
+    padding: .75rem;
+    font-weight: 500;
+    color: #5c5c5c;
+    text-transform: capitalize; }
+  table td {
+    padding: .5rem .75rem; }
+  table tr:nth-child(2n) {
+    background: #f8f8f8; }
+  table .face {
+    height: 2rem;
+    position: relative; }
+
+/*# sourceMappingURL=table.css.map */

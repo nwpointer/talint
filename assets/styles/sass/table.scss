@@ -1,8 +1,10 @@
+@import 'color';
+
 table, th, td {
    border: 1px solid $fill-dark;
 }
 table{
-	@include span(12);
+	width: 100%;
 	border-collapse: collapse;
 	text-align: left;
 	font-size: 90%;
