@@ -99,6 +99,19 @@ Discover = React.createClass({
 			}
 		}
 
+		extras = function(){
+			if(!self.props.withoutExtras){
+				return(
+					<div>
+						<a className="suggest" href="#" onClick={this.clearSkills} >clear all</a>
+						<a className="suggest" href="mailto:nwpointer@gmail">suggest a skill</a>
+						<a className="suggest" href="#" data-remodal-target="modal">save search</a>
+						<a className="suggest" href={loadSearches}>load search</a>
+					</div>
+				)
+			}
+		}
+
 		if(this.state.users.length){
 			this.updateMatch();
 		}
@@ -107,10 +120,7 @@ Discover = React.createClass({
 
 		return(
 			<div className="discover">
-				<a className="suggest" href="#" onClick={this.clearSkills} >clear all</a>
-				<a className="suggest" href="mailto:nwpointer@gmail">suggest a skill</a>
-				<a className="suggest" href="#" data-remodal-target="modal">save search</a>
-				<a className="suggest" href={loadSearches}>load search</a>
+				{extras()}
 				<br />
 				<section className="edit">
 					<RecursiveMenu data={this.state.skillTree} ch={this.selectSkill} active={this.state.active} type="list" />

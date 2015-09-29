@@ -1,4 +1,8 @@
 <script>
+	setActiveMainMenuTab('search');
+</script>
+
+<script>
 function decodeHtml(html) {
     var txt = document.createElement("textarea");
     txt.innerHTML = html;
@@ -24,8 +28,106 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 	}
 </script>
 
+<div class="ui row">
+	<div class="column">
+		<form class="ui form" action="/api/user/{{id}}" method="POST">
+		<div class="ui row">
+			<div class="column">
+				<div class="ui grid">
+					<div class="sixteen wide mobile eight wide computer eight wide tablet column">
+						<div class="persona">
+							<img class="face" src="/images/user.png" height="38" width="41" alt="">					
+							<div class="identity edit">
+								<div class='name'>
+									<div class="ui two column grid">
+										<div class="column">
+											<input class="field" placeholder="first name" type="text" name="firstname" value="{{firstname}}">
+										</div>
+										<div class="column">
+											<input class="field" placeholder="last name" type="text" name="lastname" value="{{lastname}}">
+										</div>
+									</div>
+								</div>	
+								<span class="title">
+									<input type="text" name="title" placeholder="title" value="{{title}}">
+								</span>
+							</div>	
+						</div>
+					</div>
+					<div class="right floated sixteen wide mobile eight wide tablet five wide computer column" style="margin-top:1.5rem">
+						<div class="ui two column grid">
+							<div class="column " style="padding-right:7px !important">
+								<input class="fluid ui green button" type="submit" value="save profile"
+								onclick="storeSkillProfile({{id}})">
+							</div>
+							<div class="column" style="padding-left:7px !important">
 
-<div class="block-white" style="padding:0">
+								<a class="fluid ui red button"  href="/user/{{id}}">cancel</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui row" id="info" style="padding-top:28px;">
+			<div class="column">
+				<div class="ui doubling fitted two column grid">
+					<div class="fitted column">
+						<div class="ui two column grid">
+							<div class="column">
+								<h4>email</h4>
+								<input class="field" type="text" name="email" value="{{email}}">
+							</div>
+							<div class="column">
+								<h4>phone</h4>
+								<input class="field" type="text" name="phone" value="{{phone}}">
+							</div>
+							<div class="column">
+								<h4>linkdin</h4>
+								<input class="field" type="text" name="linkdin" value="{{linkdin}}">
+							</div>
+							<div class="column">
+								<h4>availability</h4>
+								<input class="field" type="range" name="availability" min="0" max="5" value="{{availability}}" style="margin-top:1rem;">
+							</div>
+							<div class="column">
+								<h4>location</h4>
+								<input class="field" type="text" name="location" value="{{location}}">
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<h4>bio</h4>
+						<textarea class="field" name="biography" id="biography" style="width:100%" rows="3">{{biography}}</textarea>
+										<small>(limmited to 260 character)</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</form></div></div>
+
+
+
+
+<div class="ui segment">
+  <div class="ui grid">
+	<div class="ui row">
+		<div class="column">
+			<h4>skill profile</h4>
+			<div >
+				<div id="discover"></div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+
+
+{{!-- <div class="block-white" style="padding:0">
 	<form action="/api/user/{{id}}" method="POST">
 		<div class="clearfix" style="overflow:auto; padding: 1.5rem 3.38983%;">
 			<small class="fyi" >last sync: 9pm Aug, 35 records updated</small>
@@ -45,7 +147,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 			</div>
 			<aside class="grid-4 right">
 			<br><br>
-				{{!-- <a class="button green md" style="position: relative;left: .8rem;" href="/user/{{id}}/edit">save profile</a> --}}
+				<a class="button green md" style="position: relative;left: .8rem;" href="/user/{{id}}/edit">save profile</a>
 				<input class="button green md" type="submit" value="save profile" style="position: relative;left: .8rem;" 
 				onclick="storeSkillProfile({{id}})">
 				<a class="button green md"  href="/user/{{id}}">cancel changes</a>
@@ -83,7 +185,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 		</div>
 	</form>
 </div>
-
+ --}}
 {{!-- <div class="block-white bd-top bio">
 	<div class="grid-6">
 		<div class="grid-6">
@@ -114,7 +216,7 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 
 <script type="text/jsx">
 	React.render(
-		<Discover />,
+		<Discover withoutExtras="true" noStore="true" />,
 		document.getElementById('discover')
 	);
 </script>

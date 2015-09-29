@@ -34,12 +34,12 @@
             </div>
             <div class="right floated column">
                 <div class="ui tabular menu main-menu">
-                  <a class="item active" href="/user">search</a>
+                  <a class="item" id="search" href="/user">search</a>
                   {{!-- <a class="item" href="/user/{{req.user.id}}/loadSearches">load searches</a> --}}
-                  <a class="item" href="/user/{{req.user.id}}/favorites">favorites</a>
+                  <a class="item" id='favorites' href="/user/{{req.user.id}}/favorites">favorites</a>
                   {{#equal req.session.role "admin"}}
-                   <a class="item" href="/skills">skills</a>
-                   <a class="item" href="/invites">invites</a>
+                   <a class="item" id="skills" href="/skills">skills</a>
+                   <a class="item" id="invites" href="/invites">invites</a>
                   {{/equal}}
                 </div>
 

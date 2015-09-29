@@ -8,6 +8,13 @@ SkillDisplay = React.createClass({
 		this.props.dl(path);
 	},
 
+	// componentDidUpdate:function(){
+	// 	$('[data-content]').popup();
+	// },
+
+	// componentDidMount: function(){
+	// 	$('[data-content]').popup();
+	// },
 
 	render:function(){
 		data= this.props.data;
@@ -22,22 +29,24 @@ SkillDisplay = React.createClass({
 				var sel = select.bind(this, skill.path);
 				var del = deleteSkill ? deleteSkill.bind(this, skill.path) : false;
 				if(skill.rank){return(
-					<li>
-						<span className="type active" >{catagory[0]}</span>
-						<span className="name" onClick={sel}>{skill.name}: {skill.rank} {skill.unit} </span>
-						<span className="delete" onClick={del}>{dl ? "x" : ""}</span>
-					</li>
+					<div className="ui label skilltag" data-content={skill.name} data-variation="mini inverted">
+						<a href="#" className="" onClick={sel}>{skill.name}: {skill.rank} {skill.unit} </a>
+						<i className="delete icon" onClick={del}></i>
+					</div>
 				)}
 			});
 			return(
-				<ul className="child">
+				
 					{children}
-				</ul>
+	
 			);
 		})
 		return(
 			<section className="skillDisplay">
+				<br />
 				{catagories}
+				<br />
+				<br />
 			</section>
 		)
 	}

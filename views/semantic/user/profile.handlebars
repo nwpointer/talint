@@ -1,4 +1,8 @@
 <script>
+	setActiveMainMenuTab('search');
+</script>
+
+<script>
 function decodeHtml(html) {
     var txt = document.createElement("textarea");
     txt.innerHTML = html;
@@ -24,72 +28,80 @@ window.skillTree=(eval(decodeHtml("{{fake}}")));
 // 	}
 // };
 </script>
-
-
-
-	<div class="ui row">
-		<div class="eight wide column">
-			<div class="persona">
-				<img class="face" src="/images/user.png" height="41" width="41" alt="">					
-				<div class="identity">
-					<h1 class='name'>
-						{{firstname}} {{lastname}}
-						<span id="star"></span>
-					</h1>	
-					<span class="title">
-						{{title}}
-					</span>
-
-				</div>	
-			</div>
-		</div>
-		<div class="eight wide column">
-			{{#if owns}}
-
-				<a class="ui right floated green basic button" href="/user/{{id}}/edit">
-					edit profile
-				</a>
-			{{/if}}
-		</div>
-	</div>
-
-<div class="ui row">
-	<div class="eight wide column">
 		<div class="ui row">
-			<div class="four wide column">
-				<h4>email</h4>
-				<p>{{email}}</p>
-			</div>
-			<div class="four wide column">
-				<h4>phone</h4>
-				<p>{{phone}}</p>
-			</div>
-			<div class="four wide column">
-				<h4>linkdin</h4>
-				{{#if linkdin}}
-					<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
-					<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/{{linkdin}}" data-format="hover" data-text="quick view"></script>
-				{{/if}}
-				
-			</div>
-			<div class="four wide column">
-				<h4>availability</h4>
-				<p>{{availability}} / 5</p>
+			<div class="sixteen wide mobile eight wide computer eleven wide tablet column">
+				<div class="persona">
+					<img class="face" src="/images/user.png" height="38" width="41" alt="">					
+					<div class="identity">
+						<h1 class='name'>
+							{{firstname}} {{lastname}}
+							<span id="star"></span>
+						</h1>	
+						<span class="title">
+							{{title}}
+						</span>
 
+					</div>	
+				</div>
+			</div>
+			<div class="right floated sixteen wide mobile four wide tablet three wide computer column" style="margin-top:1.5rem">
+				{{#if owns}}
+					<a class="fluid ui green basic button" href="/user/{{id}}/edit">
+						edit profile
+					</a>
+				{{/if}}
 			</div>
 		</div>
-		
-	</div>
-	<div class="eight wide column">
-		<h4>Bio</h4>
-		<p>{{biography}}</p>
+
+		<div class="ui row" id="info">
+			<div class="column">
+				<div class="ui doubling fitted two column grid">
+					<div class="fitted column">
+						<div class="ui two column grid">
+							<div class="column">
+								<h4>email</h4>
+								<p>{{email}}</p>
+							</div>
+							<div class="column">
+								<h4>phone</h4>
+								<p>{{phone}}</p>
+							</div>
+							<div class="column">
+								<h4>linkdin</h4>
+								{{#if linkdin}}
+									<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
+									<script type="IN/MemberProfile" data-id="https://www.linkedin.com/in/{{linkdin}}" data-format="hover" data-text="quick view"></script>
+								{{/if}}
+							</div>
+							<div class="column">
+								<h4>availability</h4>
+								<p>{{availability}} / 5</p>
+							</div>
+							<div class="column">
+								<h4>location</h4>
+								<p>{{location}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="column">
+						<h4>bio</h4>
+						<p>{{biography}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-<div class="ui row">
-	<div class="column">
-		<h4>skill profile</h4>
-		<div id="discoverViewOnly"></div>
+
+<div class="ui segment">
+  <div class="ui grid">
+	<div class="ui row">
+		<div class="column">
+			<h4>skill profile</h4>
+			<div id="discoverViewOnly"></div>
+		</div>
 	</div>
+  </div>
 </div>
 
 <script type="text/jsx" >

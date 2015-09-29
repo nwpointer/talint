@@ -54,10 +54,10 @@ var UserTable = React.createClass({
 			return(
 				<Tr key={i} className={v.match < minMatch && "bad-match"}>
 		            <Td column="name" value={v.name}>
-		            	<a href={"user/" + v.id}>{v.name}</a>
+		            	<a href={"/user/" + v.id}>{v.name}</a>
 		            </Td>
 		            <Td column="email" value={v.email}>
-		            	<a href={"user/" + v.id}>{v.email}</a>
+		            	<a href={"/user/" + v.id}>{v.email}</a>
 		            </Td>
 		            <Td column="location" data={v.location}></Td>
 		            <Td column="availability" value={v.availability}>

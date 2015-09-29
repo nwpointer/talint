@@ -1,6 +1,27 @@
 Menu = React.createClass({
 	ch: function(e){
+		console.log((this.props.options[e.target.value].id).toString());
 		this.props.ch((this.props.options[e.target.value].id).toString());
+	},
+
+	componentDidUpdate:function(){
+		var self = this;
+		$('.dropdown').dropdown({
+			onChange: function(text, value){
+				console.log(text, value);
+				self.props.ch((self.props.options[value].id).toString());
+			}
+		});
+	},
+
+	componentDidMount: function(){
+		var self = this;
+		$('.dropdown').dropdown({
+			onChange: function(text, value){
+				console.log(text, value);
+				self.props.ch((self.props.options[value].id).toString());				
+			}
+		});	  
 	},
 	children : function(){
 		props = this.props
@@ -15,7 +36,7 @@ Menu = React.createClass({
 					<option value={i}>{v.name}</option>
 				); break;
 				case "dropdown": return(
-					<div class="item">{v.name}</div>
+					<div className="item" data-value={i} >{v.name}</div>
 				); break;
 			}
 		});
@@ -30,10 +51,10 @@ Menu = React.createClass({
 			case "list"  :   return(<ul className="list" children={this.children()} />); break;
 			case "select":   return(<select defaultValue={props.value} onChange={this.ch} children={this.children()} />); break;
 			case "dropdown": return(
-				<div class="ui floating dropdown labeled search icon button">
-  		    		<i class="world icon"></i>
-  		    		<span class="text">Select Language</span>
-  		    		<div class="menu" defaultValue={props.value} onChange={this.ch} children={this.children()} />
+				<div className="ui floating search selection dropdown">
+					<i className="dropdown icon"></i>
+  		    		<span className="text">Select Language</span>
+  		    		<div className="menu" defaultValue={props.value} onChange={this.ch} children={this.children()} />
   		    	</div>
   		    ); break;
 		}	
