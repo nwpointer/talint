@@ -17,6 +17,17 @@
 .skilltag {
   margin-bottom: .25rem !important; }
 
+@media (max-width: 557px) {
+  #userTable {
+    overflow: scroll;
+    position: relative;
+    right: 14px;
+    width: calc(100% + 14px); }
+
+  .discover {
+    position: relative;
+    right: 28px;
+    width: calc(100% + 56px); } }
 .persona h1.name {
   margin-bottom: 0px; }
 
@@ -90,6 +101,14 @@
       background: #99CC66 !important;
       color: white; }
   .discover .skillRange {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
     display: flex;
     align-items: center; }
   .discover .input {

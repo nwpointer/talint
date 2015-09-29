@@ -72,7 +72,7 @@ var UserTable = React.createClass({
 		        </Tr>
 			)
 		})
-		return(<div>
+		return(<div id="userTable">
 			<Table sortable={true} className="table"
 				   columns={["name","email", "location", "availability", "match", ""]}
 				   defaultSort={{column:'match', direction:'desc'}}

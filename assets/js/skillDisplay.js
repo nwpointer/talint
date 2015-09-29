@@ -30,7 +30,7 @@ SkillDisplay = React.createClass({
 				var del = deleteSkill ? deleteSkill.bind(this, skill.path) : false;
 				if(skill.rank){return(
 					<div className="ui label skilltag" data-content={skill.name} data-variation="mini inverted">
-						<a href="#" className="" onClick={sel}>{skill.name}: {skill.rank} {skill.unit} </a>
+						<span className="" onClick={sel}>{skill.name}: {skill.rank} {skill.unit} </span>
 						<i className="delete icon" onClick={del}></i>
 					</div>
 				)}
