@@ -103,7 +103,7 @@ Discover = React.createClass({
 			if(!self.props.withoutExtras){
 				return(
 					<div>
-						<a className="suggest" href="#" onClick={this.clearSkills} >clear all</a>
+						<a className="suggest" href="#" onClick={self.clearSkills} >clear all</a>
 						<a className="suggest" href="mailto:nwpointer@gmail">suggest a skill</a>
 						<a className="suggest" href="#" data-remodal-target="modal">save search</a>
 						<a className="suggest" href={loadSearches}>load search</a>
