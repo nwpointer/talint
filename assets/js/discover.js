@@ -94,9 +94,11 @@ Discover = React.createClass({
 		})
 
 		table = function(){
+			console.log(self.state.users)
 			if(self.state.users && self.state.users.length){
 				return(<UserTable users={self.state.users} />)
 			}
+
 		}
 
 		extras = function(){

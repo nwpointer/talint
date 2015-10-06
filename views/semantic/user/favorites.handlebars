@@ -2,16 +2,31 @@
 	setActiveMainMenuTab('favorites');
 </script>
 
-<div class="block-white">
+<div class="block-white" style="width:100%">
 <h1>favorites</h1>
-<ul>
-{{#each follows}}
-	<li>
-		<a href="/user/{{id}}">
-			{{firstname}} {{lastname}}
-		</a>
-	</li>
-{{/each}}
-</ul>
+
+<script>
+	window.Users = [];
+	{{#each follows}}
+		Users.push({
+			name: "{{firstname}} {{lastname}}",
+			id: "{{id}}",
+			email: "{{email}}",
+			location: "{{location}}",
+			availability: "{{availability}}",
+			match: 100
+		})
+	{{/each}}
+</script>
+
+<div id="usertable"></div>
+
+<script type="text/jsx">
+	React.render(
+		<UserTable users={window.Users} nomatchcol={true} />,
+		document.getElementById('usertable')
+	)
+</script>
 
 </div>
+

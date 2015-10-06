@@ -41,15 +41,14 @@ var UserTable = React.createClass({
 	// },
 
 	star:function(f){
-		console.log("hia", f);
 		_.where(this.state.users, {id:f})[0].follows = !(_.where(this.state.users, {id:f})[0].follows)
 		this.setState(this.state)
-
 	},
 
 	render:function () {
 		minMatch = this.state.minMatch
 		star = this.star
+		columns  = this.props.nomatchcol ? ["name","email", "location", "availability", ""] : ["name","email", "location", "availability", "match", ""]
 		rows = this.state.users.map(function(v,i){
 			return(
 				<Tr key={i} className={v.match < minMatch && "bad-match"}>
@@ -73,10 +72,7 @@ var UserTable = React.createClass({
 			)
 		})
 		return(<div id="userTable">
-			<Table sortable={true} className="table"
-				   columns={["name","email", "location", "availability", "match", ""]}
-				   defaultSort={{column:'match', direction:'desc'}}
-			 >
+			<Table sortable={true} className="table" columns={columns} defaultSort={{column:'match', direction:'desc'}}  >
 				{rows}
 			 </Table>
 		</div>)
