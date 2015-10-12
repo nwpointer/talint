@@ -1,4 +1,4 @@
-<div class="login">
+{{!-- <div class="login">
 	<div class="logo">
 		<h1 class="name">TalInt</h1>
 		<span class="slogan">
@@ -6,32 +6,84 @@
 		</span>
 		<p>
 			welcome! 
-			{{errors}}
+			
 		</p>
 	</div>
-	{{!-- <form  role="form" action="/auth/local/register" method="post">
+	<form  role="form" action="/auth/local/register" method="post">
 	  <input type="text" name="username" placeholder="Username" value="testuser">
 	  <input type="text" name="email" placeholder="Email" value="testuser@gmail.com">
 	  <label for="password">password</label>
 	  <input type="password" name="password" placeholder="Password" value="RNs1120!!">
 	  <button class="button" type="submit">Sign up</button> 
-	</form> --}}
+	</form>
 
-	<form class="form-inline" role="form" action="/auth/local/register/{{code}}" method="post">
-	{{!-- <label for="username">username</label> --}}
-	  <input type="hidden" name="username" value="{{username}}">
+	<form class="form-inline" role="form" action="/auth/local/register" method="post">
+	<label for="username">username</label>
+	  <input id="username" type="hidden" name="username" value="{{username}}"> <br>
 	  <label for="email">email</label>
-	  <input type="text" name="email" placeholder="Email" 
-	  value="{{invite.email}}"">
+	  <input id="email" type="text" name="email" placeholder="Email" 
+	  value="test@gmail.com"> <br>
 	  <label for="password">password</label>
 	  <input autofocus type="password" name="password" placeholder="Password" >
 	  <small class="grey">(password must be at least 8 characters long)</small>
-	  <button class="button" type="submit">Sign up</button>
+	  <button class="button" type="submit" onclick="return test();">Sign up</button>
 	</form>
 
 	{{#each providers}}
 	  <a href="/auth/{{slug}}" role="button">{{name}}</a>
 	{{/each}}
 
+</div> --}}
 
+<div class="ui card login" style="margin-top:10%">
+    <div class="center aligned content">
+    	<div class="logo">
+			<h1 class="name">TalInt</h1>
+			<span class="slogan">
+				discover true potential
+			</span>	<br>
+			<span>{{errors}}</span>	
+    	</div>
+    </div>
+    <div class="left aligned content">
+    	<form class="ui form" role="form" action="/auth/local/register" method="post">
+    	    <div class="field">
+    	    	<div class="ui fluid left icon input">
+    	    	  <i class="mail outline icon"></i>
+    	    	  <input id="username" type="hidden" name="username" placeholder="Username" value="">
+    	    	  <input autofocus id="email" type="text" name="email" placeholder="Email" >
+    	    	</div>
+    	    </div>
+    	    <div class="field">
+    	    	<div class="ui fluid left icon input">
+    	    	  <i class="unlock alternate icon"></i>
+    	    	  <input type="password" name="password" placeholder="Password" >
+    	    	</div>
+    	    </div>
+    	    {{!-- <input type="submit" class="ui fluid green big submit button" onclick="return test();">Login in</input> --}}
+    	    <button class="ui fluid green big submit button" type="submit" onclick="return insertUserb4submit();">Sign up</button>
+    	</form>
+    	<br>
+    </div>	
+	{{!-- <div class="content alternative">
+			<p class="left floated note">Or sign in with:</p>
+		<button class="ui right floated icon button">
+			<i class="facebook icon"></i>
+		</button>
+		<button class="ui right floated icon button">
+			<i class="linkedin icon"></i>
+		</button>
+		<button class="ui right floated icon button">
+			<i class="google plus icon"></i>
+		</button>
+	</div> --}}
+
+	<script>
+		insertUserb4submit = function(){
+			username =document.getElementById('username')
+			email=document.getElementById('email')
+			username.value = email.value
+		}
+		// alert("foo");
+	</script>
 </div>

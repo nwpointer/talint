@@ -18,7 +18,12 @@
                 <div class="ui text menu">
                   <div class="ui right dropdown item">
                     {{!-- <img class="ui avatar image" src="/images/user.png" alt="">  --}}
-                   {{req.user.firstname}} {{req.user.lastname}}
+                    {{#if req.user.firstname}}
+                      {{req.user.firstname}} {{req.user.lastname}}
+                    {{else}}
+                      user
+                    {{/if}}
+                   
                     <i class="dropdown icon"></i>
                     <div class="menu">
                       <div class="item">

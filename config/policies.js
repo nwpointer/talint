@@ -29,14 +29,14 @@ module.exports.policies = {
 
   '*': ['passport', 'sessionAuth'],
 
-  // 'auth': {
-  //     '*': ['passport'],
-  // },
-
-  AuthController : {
-    '*': ['passport'],
-    register : ['passport', 'hasKey']
+  'auth': {
+      '*': ['passport'],
   },
+
+  // AuthController : {
+  //   '*': ['passport'],
+  //   register : ['passport', 'hasKey']
+  // },
 
   InvitesController:{
     '*': ['passport', 'sessionAuth', 'isAdmin']

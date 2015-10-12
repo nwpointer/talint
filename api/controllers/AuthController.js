@@ -94,31 +94,10 @@ var AuthController = {
    * @param {Object} res
    */
   register: function (req, res) {
-    //return res.send("asfasdf");
-    // return res.view({
-    //   errors: req.flash('error'),
-    //   code: 'asdfd',
-    //   invite: 'asdfsdf',
-    //   username: 'asfdasdf'
-    // });
-
-
-
-    var code = req.params.code;
-    Invites.findOne({code:code}).exec(function (err, found){
-      if(found){
-        res.view({
+    res.view({
           errors: req.flash('error'),
-          layout: '../../views/basic/layouts/blank',
-          code: code,
-          invite: found,
-          username: found.email.split("@")[0]
-        });
-      }else{
-        res.redirect('/');
-      }
+          layout: '../../views/semantic/layouts/blank'
     });
-   
   },
 
   /**
@@ -149,77 +128,56 @@ var AuthController = {
    * @param {Object} res
    */
   callback: function (req, res) {
-    var code = req.params.code;
+      function tryAgain (err) {
 
-    function tryAgain (err) {
-      // Only certain error messages are returned via req.flash('error', someError)
-      // because we shouldn't expose internal authorization errors to the user.
-      // We do return a generic error and the original request body.
-      var flashError = req.flash('error')[0];
+        // Only certain error messages are returned via req.flash('error', someError)
+        // because we shouldn't expose internal authorization errors to the user.
+        // We do return a generic error and the original request body.
+        var flashError = req.flash('error')[0];
 
-      if (err && !flashError ) {
-        req.flash('error', 'Error.Passport.Generic');
-      } else if (flashError) {
-        req.flash('error', flashError);
-      }
-      req.flash('form', req.body);
+        if (err && !flashError ) {
+          req.flash('error', 'Error.Passport.Generic');
+        } else if (flashError) {
+          req.flash('error', flashError);
+        }
+        req.flash('form', req.body);
 
-      // If an error was thrown, redirect the user to the
-      // login, register or disconnect action initiator view.
-      // These views should take care of rendering the error messages.
-      var action = req.param('action');
+        // If an error was thrown, redirect the user to the
+        // login, register or disconnect action initiator view.
+        // These views should take care of rendering the error messages.
+        var action = req.param('action');
 
-      switch (action) {
-        case 'register':
-          res.redirect('/register/'+code);
-          break;
-        case 'disconnect':
-          res.redirect('back');
-          break;
-        default:
-          res.redirect('/login');
-      }
-    }
-
-    passport.callback(req, res, function (err, user, challenges, statuses) {
-      if (err || !user) {
-        return tryAgain(challenges);
+        switch (action) {
+          case 'register':
+            res.redirect('/register');
+            break;
+          case 'disconnect':
+            res.redirect('back');
+            break;
+          default:
+            res.redirect('/login');
+        }
       }
 
-      Invites.update({code:code}, {status: "sent"}).exec(function(err, newInvite){
-
-        //if registering, auto fill user name
-        //if(action == 'register'){
-          // if(newInvite[0]){
-          //   user.firstname = newInvite[0].firstname
-          //   user.lastname = newInvite[0].lastname
-
-          //   user.save(function (err, u) {
-          //     if(err){
-          //       console.log(err);
-          //     }
-          //   })
-          // }
-        //}
+      passport.callback(req, res, function (err, user, challenges, statuses) {
+        if (err || !user) {
+          return tryAgain(challenges);
+        }
 
         req.login(user, function (err) {
           if (err) {
             return tryAgain(err);
           }
-
-          req.session.role = user.role
-
           
           // Mark the session as authenticated to work with default Sails sessionAuth.js policy
           req.session.authenticated = true
+          req.session.role = user.role
           
           // Upon successful login, send the user to the homepage were req.user
           // will be available.
           res.redirect('/user');
         });
-
       });
-    });
   },
 
   /**
