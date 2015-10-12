@@ -1,20 +1,23 @@
 
-<div class="ui segment head">
+<div class="ui segment head" style="background:#232D28">
      <div class="ui grid">
         <div class="one column row">
             <div class="left floated column">
                 <div class="logo">
                     <a href="/user/">
-                      <h1 class="name inline">TalInt</h1>
+                      {{!-- <h1 class="name inline">TalInt</h1> --}}
+
+                      <img src="http://fertilabthinkubator.com/wp-content/themes/reverie-master/img/fertilab-logo-light.png" height="80px" alt="">
+                      <img src="/images/fertilab.png" alt="" style="position: relative;top: -10px;">
                     </a>
-                    <span class="slogan computer only">
+                    {{!-- <span class="slogan computer only">
                         discover true potential
-                    </span>     
+                    </span> --}}     
                 </div>
 
                 <div class="ui text menu">
                   <div class="ui right dropdown item">
-                    <img class="ui avatar image" src="https://richardwiseman.files.wordpress.com/2012/09/50417f7a-04e7-4d8a-ba82-cc2023c7b15e.jpeg">
+                    {{!-- <img class="ui avatar image" src="/images/user.png" alt="">  --}}
                    {{req.user.firstname}} {{req.user.lastname}}
                     <i class="dropdown icon"></i>
                     <div class="menu">

@@ -5,5 +5,6 @@
   "paths":{
   	"views": "views/semantic",
   	"layout": "views/semantic/layouts"
-  }
+  },
+  "hooks": { "grunt": false }
 }
